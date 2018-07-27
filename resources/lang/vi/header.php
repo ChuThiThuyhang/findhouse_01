@@ -21,4 +21,5 @@ return [
     'tours' => 'Tours',
     'contact' => 'Liên hệ',
     'welcome' => 'Welcome to VietNam',
+    'Search' => 'Tìm kiếm',
 ];

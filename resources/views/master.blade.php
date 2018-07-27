@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/aos.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/aos.map') }}">
-        <link rel="stylesheet" href="{{asset('bower_components/myBootstrap-design/lib/fonts/ionicons/css/ionicons.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/fonts/ionicons/css/ionicons.min.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/fonts/fontawesome/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/main_styles.css') }}">

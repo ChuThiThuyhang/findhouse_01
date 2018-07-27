@@ -1,4 +1,4 @@
-<section class="site-hero overlay" style="background-image: url(img/anhbackground_prj1.jpg)">
+<section class="site-hero overlay" style="background-image: url({{ asset('assets/img/anhbackground_prj1.jpg') }})">
     <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
             <div class="col-md-10 text-center">
