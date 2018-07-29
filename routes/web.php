@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('home');
 });
+
 Route::get('/register', 'RegisterController@register');
 Route::post('/register', 'RegisterController@postRegister');
 Route::get('/logout', 'LoginController@logout');

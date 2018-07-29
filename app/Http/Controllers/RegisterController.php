@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+<<<<<<< 68c4a842680053a6b1d92c88bbd8c41b4e84ae8c
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterFormRequest;
 use App\User;
