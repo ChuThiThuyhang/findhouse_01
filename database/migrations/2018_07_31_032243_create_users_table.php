@@ -8,7 +8,8 @@ class CreateUsersTable extends Migration
 {
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table)
+        {
             $table->increments('id');
             $table->string('fullname');
             $table->string('email')->unique();
@@ -21,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
     }
+
     public function down()
     {
         Schema::dropIfExists('users');

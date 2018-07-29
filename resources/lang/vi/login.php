@@ -13,15 +13,17 @@ return [
     |
     */
 
-    'login' => 'Đăng nhập',
-    'logout' => 'Thoát',
+    'SignIp' => 'Đăng Nhập',
     'register' => 'Đăng ký',
-    'yourlocation' => 'yourlocation',
-    'home' => 'Trang chủ',
-    'location' => 'Địa điểm',
-    'tours' => 'Tours',
-    'contact' => 'Liên hệ',
-    'welcome' => 'Welcome to VietNam',
-    'Search' => 'Tìm',
-    'blogsport' => 'Nổi bật',
+    'W3layouts' => 'W3layouts',
+    'question' => 'Bạn đã có tài khoản chưa?',
+    'loginnow' => 'Đăng nhập',
+    'confirm_password' => 'Nhập lại mật khẩu',
+    'password' => 'mật khẩu',
+    'username' => 'Tên tài khoản',
+    'address' => 'địa chỉ',
+    'phonenumber' => 'SDT',
+    'email' => 'mail',
+    'fullname' => 'fullname',
+    'message' => 'Email hoặc mật khẩu chưa chính xác!',
 ];
