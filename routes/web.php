@@ -20,3 +20,8 @@ Route::post('/register', 'RegisterController@postRegister');
 Route::get('/logout', 'LoginController@logout');
 Route::get('/login', 'LoginController@login');
 Route::post('/login', 'LoginController@postLogin');
+
+Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespace' => 'Admin'], function() {
+    Route::get('/', 'HomeController@index');
+    Route::get('/user', 'UserController@index');
+});

@@ -19,8 +19,14 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials))
         {
-            // Authentication passed...
-            return redirect()->intended('/');
+            if (Auth::user()->role == 1)
+            {
+                return redirect()->intended('/admincp');
+            }
+            else
+            {
+                return redirect()->intended('/');
+            }
         }
         else
         {
