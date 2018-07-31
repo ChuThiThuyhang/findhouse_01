@@ -1,5 +1,5 @@
 <header class="header">
-        <!-- Top Bar -->
+            <!-- Top Bar -->
     <div class="top_bar">
         <div class="container">
             <div class="row">
@@ -20,18 +20,20 @@
                         </ul>
                     </div>
                     <div class="user_box ml-auto">
-                        <div class="user_box_login user_box_link">
-                            <a href="#">{{ trans('header.login') }}</a>
-                        </div>
-                        <div class="user_box_register user_box_link">
-                            <a href="#">{{ trans('header.register') }}</a>
-                        </div>
+                        @if (Auth::check())
+                           <div class="user_box_login user_box_link">
+                           <a href="#">{{ Auth::user()->username }}</a></div>
+                           <div class="user_box_login user_box_link">
+                           <a href="{{ url('/logout') }}">{{ trans('header.logout') }}</a></div>
+                        @else
+                           <div class="user_box_login user_box_link"><a href="{{ url('/login') }}">{{ trans('header.login') }}</a></div>
+                            <div class="user_box_register user_box_link"><a href="{{ url('/register') }}">{{ trans('header.register') }}</a></div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>      
     </div>
-        <!-- Main Navigation -->
     <nav class="main_nav">
         <div class="container">
             <div class="row">
@@ -64,7 +66,6 @@
                             <input type="text" class="form-control" name="search" placeholder="{{ trans('header.Search') }}">
                         </div>
                     {!! Form::close() !!}
-                    {!! Form::submit(trans('header.Search')) !!}
                     <div class="hamburger">
                         <i class="fa fa-bars trans_200"></i>
                     </div>

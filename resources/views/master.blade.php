@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/fonts/fontawesome/css/font1.min.css') }}">
         <!-- Bootstrap Material Design -->
+        <link rel="stylesheet" href="{{ asset('css/styleregister.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/bootstrap-material-design.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/bootstrap.min.css') }}">
@@ -22,6 +23,8 @@
     <body>
         @include('shared.header')
         @include('shared.superHeader')
+        @yield('content')
+        @include('shared.footer')
+
     </body>
 </html>
-

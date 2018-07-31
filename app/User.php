@@ -15,15 +15,21 @@ class User extends Authenticatable
         'email', 
         'phonenumber', 
         'username', 
+        'password', 
         'address', 
-        'role',
     ];
     protected $hidden = [
         'password', 
         'remember_token',
     ];
+
     public function booking()
     {
         return $this->hasMany('App\Booking', 'users_id', 'id');
+    }
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
     }
 }
