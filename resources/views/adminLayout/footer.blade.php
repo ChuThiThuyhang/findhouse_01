@@ -5,7 +5,6 @@
                 <li>
                     <a href="#">{{ trans('admin.home') }}</a>
                 </li>
-
             </ul>
         </nav>
         <p class="copyright pull-right">
