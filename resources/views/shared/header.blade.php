@@ -1,5 +1,5 @@
 <header class="header">
-            <!-- Top Bar -->
+         <!-- Top Bar -->
     <div class="top_bar">
         <div class="container">
             <div class="row">
@@ -20,20 +20,30 @@
                         </ul>
                     </div>
                     <div class="user_box ml-auto">
-                        @if (Auth::check())
-                           <div class="user_box_login user_box_link">
-                           <a href="#">{{ Auth::user()->username }}</a></div>
-                           <div class="user_box_login user_box_link">
-                           <a href="{{ url('/logout') }}">{{ trans('header.logout') }}</a></div>
-                        @else
-                           <div class="user_box_login user_box_link"><a href="{{ url('/login') }}">{{ trans('header.login') }}</a></div>
-                            <div class="user_box_register user_box_link"><a href="{{ url('/register') }}">{{ trans('header.register') }}</a></div>
-                        @endif
+                    @if (Auth::check())
+                        <div class="user_box_login user_box_link">
+                            <a href="#">{{ Auth::user()->username }}</a>
+                        </div>
+                        <div class="user_box_login user_box_link">
+                            <a href="{{ url('/logout') }}">{{ trans('header.logout') }}</a>
+                        </div>
+                    @if(Auth::user()->role == 1)
+                        <div class="user_box_login user_box_link">
+                           <a href="{{ url('/admincp') }}">{{ trans('header.admin') }}</a>
+                           </div>
+                    @endif
+                    @else
+                        <div class="user_box_login user_box_link">
+                            <a href="{{ url('/login') }}">{{ trans('header.login') }}</a>
+                        </div>
+                        <div class="user_box_register user_box_link"><a href="{{ url('/register') }}">{{ trans('header.register') }}</a></div>
+                    @endif
                     </div>
                 </div>
             </div>
         </div>      
     </div>
+            <!-- Main Navigation -->
     <nav class="main_nav">
         <div class="container">
             <div class="row">
@@ -44,30 +54,37 @@
                                 <img src="{{ asset('assets/img/logo.png') }}" alt="">{{ trans('header.yourlocation') }}
                             </a>
                         </div>
-                    </div>
-                    <div class="main_nav_container ml-auto">
-                        <ul class="main_nav_list">
-                            <li class="main_nav_item">
-                                <a href="#">{{ trans('header.home') }}</a>
-                            </li>
-                            <li class="main_nav_item">
-                                <a href="about.html">{{ trans('header.location') }}</a>
-                            </li>
-                            <li class="main_nav_item">
-                                <a href="offers.html">{{ trans('header.tours') }}</a>
-                            </li>
-                            <li class="main_nav_item">
-                                <a href="blog.html">{{ trans('header.contact') }}</a>
-                            </li>
-                        </ul>
-                    </div>
-                    {!! Form::open(['method' => 'GET', 'url' => 'search', 'class' => 'navbar-form navbar-left', 'role' => 'search']) !!}
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" name="search" placeholder="{{ trans('header.Search') }}">
+                        <div class="main_nav_container ml-auto">
+                            <ul class="main_nav_list">
+                                <li class="main_nav_item">
+                                    <a href="#">{{ trans('header.home') }}</a>
+                                </li>
+                                <li class="main_nav_item">
+                                    <a href="about.html">{{ trans('header.location') }}</a>
+                                </li>
+                                <li class="main_nav_item">
+                                    <a href="offers.html">{{ trans('header.tours') }}</a>
+                                </li>
+                                <li class="main_nav_item">
+                                    <a href="blog.html">{{ trans('header.contact') }}</a>
+                                </li>
+                            </ul>
                         </div>
-                    {!! Form::close() !!}
-                    <div class="hamburger">
-                        <i class="fa fa-bars trans_200"></i>
+                        {!! Form::open(['method' => 'GET', 'url' => 'search', 'class' => 'navbar-form navbar-left', 'role' => 'search']) !!}
+                            <div class="input-group custom-search-form">
+                                {!! Form::text(
+                                    'search',
+                                    null,
+                                    [
+                                        'placeholder' => trans('header.Search'),
+                                        'class' => 'form-control',
+                                    ])
+                                !!}
+                            </div>
+                        {!! Form::close() !!}
+                        <div class="hamburger">
+                            <i class="fa fa-bars trans_200"></i>
+                        </div>
                     </div>
                 </div>
             </div>

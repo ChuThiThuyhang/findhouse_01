@@ -25,6 +25,5 @@
         @include('shared.superHeader')
         @yield('content')
         @include('shared.footer')
-
     </body>
 </html>

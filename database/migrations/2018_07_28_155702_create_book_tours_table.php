@@ -8,7 +8,8 @@ class CreateBookToursTable extends Migration
 {
     public function up()
     {
-        Schema::create('book_tours', function (Blueprint $table) {
+        Schema::create('book_tours', function (Blueprint $table)
+        {
             $table->increments('bookid');
             $table->integer('tour_id');
             $table->integer('users_id');
