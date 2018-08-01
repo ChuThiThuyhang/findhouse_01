@@ -19,16 +19,16 @@
     </head>
     <body>
         <div class="wrapper">
-           @include("adminLayout.slideBar")
+           @include('adminLayout.slideBar')
             <div class="main-panel">
                 <div class="content">
                     <div class="container-fluid">
                         <div class="row">
-                        <!-- @yield("content") -->
+                        @yield('content')
                         </div>
                     </div>
                 </div>
-               @include("adminLayout.footer")
+               @include('adminLayout.footer')
             </div>
         </div>
         <script src="{{ asset('bower_components/myBootstrap-design/lib/js/jquery-3.2.1.min.js') }}" type="text/javascript"></script>
