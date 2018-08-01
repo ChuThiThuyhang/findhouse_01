@@ -5,9 +5,13 @@
         </div>
         <ul class="nav">
             <li class="">
-                <a href="{{ url('admincp/user')}}">
+                <a href="{{ url('admincp/user') }}">
                     <i class="pe-7s-user"></i>
                     <p>{{ trans('admin.manageruser') }}</p>
+                </a>
+                <a href="{{ url('admincp/tour') }}">
+                    <i class="pe-7s-user"></i>
+                    <p>{{ trans('admin.Tours') }}</p>
                 </a>
             </li>
         </ul>

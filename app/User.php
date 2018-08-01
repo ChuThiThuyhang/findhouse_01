@@ -3,29 +3,29 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
 
 class User extends Authenticatable
 {
-    use Notifiable;
     protected $table = 'users';
     protected $fillable = [
         'id',
-        'fullname', 
-        'email', 
-        'phonenumber', 
-        'username',  
-        'address', 
+        'fullname',
+        'email',
+        'phonenumber',
+        'username',
+        'address',
     ];
     protected $hidden = [
-        'password', 
+        'password',
         'remember_token',
     ];
 
     public function booking()
     {
-        return $this->hasMany('App\Booking', 'users_id', 'id');
+        return $this->hasMany('App\Booking');
     }
 
     public function setPasswordAttribute($password)

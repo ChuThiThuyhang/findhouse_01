@@ -6,22 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent;
 
-class Booking extends Model
+class LocationTour extends Model
 {
-    // use Notifiable;
-    protected $table = 'book_tours';
+    protected $table = 'location_tour';
     protected $fillable = [
-        'bookid',
+        'location_id',
         'tour_id',
-        'users_id',
-        'time_book',
-        'price_total',
-        'description',
     ];
 
-    public function user()
+    public function location()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Location');
     }
 
     public function tour()

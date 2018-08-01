@@ -6,27 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent;
 
-class Tour extends Model
+class Location extends Model
 {
-    protected $table = 'tours';
+    protected $table = 'locations';
     protected $fillable = [
         'id',
         'name',
-        'start_at',
-        'stay_date_number',
-        'price',
-        'rate_id',
+        'address',
+        'province_id',
+        'image',
         'description',
     ];
 
-    public function booking()
+    public function province()
     {
-        return $this->hasMany('App\Booking');
-    }
-
-    public function rate()
-    {
-        return $this->belongsTo('App\Rate');
+        return $this->belongsTo('App\Province');
     }
 
     public function locationtour()
@@ -34,4 +28,8 @@ class Tour extends Model
         return $this->hasMany('App\LocationTour');
     }
 
+    public function plan()
+    {
+        return $this->hasMany('App\Plan');
+    }
 }

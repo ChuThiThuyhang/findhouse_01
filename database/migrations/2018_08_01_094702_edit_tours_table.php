@@ -4,21 +4,21 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EditUsersTable extends Migration
+class EditToursTable extends Migration
 {
     public function up()
     {
-        Schema::table('users', function (Blueprint $table)
+        Schema::table('tours', function (Blueprint $table)
         {
-            $table->integer('role')->default(0)->change();
+            $table->renameColumn('tour_id', 'id');
         });
     }
 
     public function down()
     {
-        Schema::table('users', function (Blueprint $table)
+        Schema::table('tours', function (Blueprint $table)
         {
-            $table->integer('role');
+            $table->renameColumn('id', 'tour_id');
         });
     }
 }
