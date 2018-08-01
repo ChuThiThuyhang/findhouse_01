@@ -4,9 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Tour extends Model
 {
-    use Notifiable;
     protected $table = 'tours';
     protected $fillable = [
         'tour_id', 
