@@ -1,4 +1,4 @@
-@extends('masterAdmin')
+@extends('adminlte::page')
 @section('tittle', 'Admin')
 @section('content')
     <div class="col-md-12">

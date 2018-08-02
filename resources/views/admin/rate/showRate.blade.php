@@ -1,11 +1,12 @@
-@extends('masterAdmin')
+@extends('adminlte::page')
 @section('tittle', 'Admin')
 @section('content')
     <div class="col-md-12">
         <div class="card">
             <div class="header">
                 <h4 class="title">{{ trans('rate.title1') }}</h4>
-                <a href="">{{ trans('rate.addRate') }}</a>
+                <a href="{{ url('admincp/addRate') }}">
+                    <i class="pe-7s-user"></i>">{{ trans('rate.addRate') }}</a>
             </div>
             <div class="content table-responsive table-full-width">
                 <table class="table table-hover table-striped">

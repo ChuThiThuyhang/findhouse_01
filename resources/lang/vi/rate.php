@@ -28,4 +28,6 @@ return [
     'rate_point' => '% giảm giá',
     'title1' => 'Danh sách Tours',
     'addRate' => 'Thêm khuyến mại',
+    'add' => 'Thêm',
+    'cancel' => 'Huỷ',
 ];
