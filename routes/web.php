@@ -21,8 +21,14 @@ Route::get('/logout', 'LoginController@logout');
 Route::get('/login', 'LoginController@login');
 Route::post('/login', 'LoginController@postLogin');
 
-Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespace' => 'Admin'], function() {
+Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespace' => 'Admin'], function()
+{
     Route::get('/', 'HomeController@index');
     Route::get('/user', 'UserController@index');
     Route::get('/tour', 'TourController@show');
+    Route::get('/rate', 'RateController@showRate');
+    Route::get('/location', 'LocationController@showLocation');
+    Route::get('/plan', 'PlanController@showPlan');
+    Route::get('/province', 'ProvinceController@showProvine');
 });
+// route
