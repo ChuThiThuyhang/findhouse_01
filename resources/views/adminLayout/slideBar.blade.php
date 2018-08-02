@@ -13,6 +13,30 @@
                     <i class="pe-7s-user"></i>
                     <p>{{ trans('admin.Tours') }}</p>
                 </a>
+                <a href="{{ url('admincp/rate') }}">
+                    <i class="pe-7s-user"></i>
+                    <p>{{ trans('admin.Rate') }}</p>
+                </a>
+                <a href="{{ url('admincp/location') }}">
+                    <i class="pe-7s-user"></i>
+                    <p>{{ trans('admin.Location') }}</p>
+                </a>
+                <a href="{{ url('admincp/province') }}">
+                    <i class="pe-7s-user"></i>
+                    <p>{{ trans('admin.Province') }}</p>
+                </a>
+                <a href="{{ url('admincp/plan') }}">
+                    <i class="pe-7s-user"></i>
+                    <p>{{ trans('admin.Plan') }}</p>
+                </a>
+                <a href="{{ url('admincp/booking') }}">
+                    <i class="pe-7s-user"></i>
+                    <p>{{ trans('admin.Booking') }}</p>
+                </a>
+                <a href="{{ url('admincp/location_tour') }}">
+                    <i class="pe-7s-user"></i>
+                    <p>{{ trans('admin.LocationTour') }}</p>
+                </a>
             </li>
         </ul>
     </div>
