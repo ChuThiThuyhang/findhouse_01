@@ -4,21 +4,21 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EditUsersTable extends Migration
+class EditPlansTable extends Migration
 {
     public function up()
     {
-        Schema::table('users', function (Blueprint $table)
+        Schema::table('plans', function (Blueprint $table)
         {
-            $table->integer('role')->default(0)->change();
+            $table->renameColumn('plan_id', 'id');
         });
     }
 
     public function down()
     {
-        Schema::table('users', function (Blueprint $table)
+        Schema::table('plans', function (Blueprint $table)
         {
-            $table->integer('role');
+            $table->renameColumn('id', 'plan_id');
         });
     }
 }
