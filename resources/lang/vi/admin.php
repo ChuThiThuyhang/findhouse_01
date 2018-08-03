@@ -34,4 +34,5 @@ return [
     'Plan' => 'Kế hoạch Tour',
     'Booking' => 'Quản lý đặt Tour',
     'LocationTour' => 'Chi tiết Tour_Địa điểm',
+    'add' => 'Thêm',
 ];

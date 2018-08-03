@@ -30,5 +30,7 @@ Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespa
     Route::get('/location', 'LocationController@showLocation');
     Route::get('/plan', 'PlanController@showPlan');
     Route::get('/province', 'ProvinceController@showProvine');
+    Route::get('/addRate', 'RateController@rate');
+    Route::post('/addRate', 'RateController@addRate');
 });
 // route
