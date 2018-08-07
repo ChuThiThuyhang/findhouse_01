@@ -11,6 +11,7 @@ class EditToursTable extends Migration
         Schema::table('tours', function (Blueprint $table)
         {
             $table->renameColumn('tour_id', 'id');
+            $table->string('image');
         });
     }
 

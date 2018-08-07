@@ -17,6 +17,7 @@ class Tour extends Model
         'price',
         'rate_id',
         'description',
+        'image',
     ];
 
     public function booking()

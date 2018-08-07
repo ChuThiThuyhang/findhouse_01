@@ -5,7 +5,7 @@
         <div class="card">
             <div class="header">
                 <h4 class="title">{{ trans('location.title1') }}</h4>
-                <a href="">{{ trans('location.addLocation') }}</a>
+                <a href="{{ url('admincp/addProvince') }}">{{ trans('location.addLocation') }}</a>
             </div>
             <div class="content table-responsive table-full-width">
                 <table class="table table-hover table-striped">
@@ -15,8 +15,8 @@
                             <th>{{ trans('location.name') }}</th>
                             <th>{{ trans('location.address') }}</th>
                             <th>{{ trans('location.province_id') }}</th>
-                            <th>{{ trans('location.image') }}</th>
                             <th>{{ trans('location.description') }}</th>
+                            <th>{{ trans('location.image') }}</th>
                             <th>{{ trans('admin.Edit') }}</th>
                             <th>{{ trans('admin.Delete') }}</th>
                        </tr>
@@ -29,8 +29,8 @@
                             <td>{{ $location->name }}</td>
                             <td>{{ $location->address }}</td>
                             <td>{{ $location->province_id }}</td>
-                            <td>{{ $location->image }}</td>
                             <td>{{ $location->description }}</td>
+                            <td>{{ $location->image }}</td>
                             <td>
                                 <a href="">{{ trans('admin.Edit') }}</a>
                             </td>
