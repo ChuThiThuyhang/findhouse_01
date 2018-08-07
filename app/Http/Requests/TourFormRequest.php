@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RateFormRequest extends FormRequest
+class TourFormRequest extends FormRequest
 {
     public function authorize()
     {
@@ -15,9 +15,12 @@ class RateFormRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'rate_point' => 'required|numeric',
             'start_at' => 'required',
-            'rate_date_number' => 'required|max:10|integer',
+            'stay_date_number' => 'required|max:10|integer',
+            'price' => 'required|integer',
+            'rate_id' => 'required',
+            'description' => 'required',
+            'image' => '',
         ];
     }
 }

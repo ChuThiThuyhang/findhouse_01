@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
+Route::get('/', 'userController@home');
 
 Route::get('/register', 'RegisterController@register');
 Route::post('/register', 'RegisterController@postRegister');
@@ -29,8 +30,13 @@ Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespa
     Route::get('/rate', 'RateController@showRate');
     Route::get('/location', 'LocationController@showLocation');
     Route::get('/plan', 'PlanController@showPlan');
+    Route::get('/showprovince', 'ProvinceController@Provine');
     Route::get('/province', 'ProvinceController@showProvine');
+    Route::post('/province', 'ProvinceController@addProvine');
     Route::get('/addRate', 'RateController@rate');
     Route::post('/addRate', 'RateController@addRate');
+    Route::get('/addTour', 'TourController@tour');
+    Route::post('/addTour', 'TourController@addTour');
+    Route::get('/addLocation', 'LocationController@location');
+    Route::post('/addLocation', 'LocationController@addLocation');
 });
-// route
