@@ -9,13 +9,13 @@ use App\Province;
 
 class ProvinceController extends Controller
 {
-    public function showProvine()
+    public function showProvines()
     {
         $provinces = Province::all();
         
         return view('admin.province.showProvince', compact('provinces'));
     }
-
+// ho nay 2 ham giong ten nhau la ko dc
     public function showProvine()
     {
         

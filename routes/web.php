@@ -11,7 +11,7 @@
 |
 */
 
-// Route::get('/', function () {
+// Route::get('/home', function () {
 //     return view('home');
 // });
 Route::get('/', 'userController@home');
@@ -21,6 +21,9 @@ Route::post('/register', 'RegisterController@postRegister');
 Route::get('/logout', 'LoginController@logout');
 Route::get('/login', 'LoginController@login');
 Route::post('/login', 'LoginController@postLogin');
+Route::get('/location', 'userController@location');
+Route::get('/location/{idpro}/{id}', 'userController@local');
+Route::get('/local/{id}', 'userController@loadLocal');
 
 Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespace' => 'Admin'], function()
 {
@@ -30,7 +33,7 @@ Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespa
     Route::get('/rate', 'RateController@showRate');
     Route::get('/location', 'LocationController@showLocation');
     Route::get('/plan', 'PlanController@showPlan');
-    Route::get('/showprovince', 'ProvinceController@Provine');
+    Route::get('/showprovince', 'ProvinceController@showProvines');
     Route::get('/province', 'ProvinceController@showProvine');
     Route::post('/province', 'ProvinceController@addProvine');
     Route::get('/addRate', 'RateController@rate');

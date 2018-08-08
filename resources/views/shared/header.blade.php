@@ -45,14 +45,15 @@
     </div>
             <!-- Main Navigation -->
     <nav class="main_nav">
-        <div class="container">
-            <div class="row">
-                <div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
-                    <div class="logo_container">
-                        <div class="logo">
-                            <a href="#">
-                                <img src="{{ asset('assets/img/logo.png') }}" alt="">{{ trans('header.yourlocation') }}
-                            </a>
+            <div class="container">
+                <div class="row">
+                    <div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
+                        <div class="logo_container">
+                            <div class="logo">
+                                <a href="#">
+                                    <img src="{{ asset('assets/img/logo.png') }}" alt="">{{ trans('header.yourlocation') }}
+                                </a>
+                            </div>
                         </div>
                         <div class="main_nav_container ml-auto">
                             <ul class="main_nav_list">
@@ -60,7 +61,7 @@
                                     <a href="#">{{ trans('header.home') }}</a>
                                 </li>
                                 <li class="main_nav_item">
-                                    <a href="about.html">{{ trans('header.location') }}</a>
+                                    <a href="{{ url('/location') }}">{{ trans('header.location') }}</a>
                                 </li>
                                 <li class="main_nav_item">
                                     <a href="offers.html">{{ trans('header.tours') }}</a>
@@ -70,8 +71,8 @@
                                 </li>
                             </ul>
                         </div>
-                        {!! Form::open(['method' => 'GET', 'url' => 'search', 'class' => 'navbar-form navbar-left', 'role' => 'search']) !!}
-                            <div class="input-group custom-search-form">
+                        
+                         {!! Form::open(['method' => 'GET', 'url' => 'search', 'id' =>'search_form', 'class' => 'search_form bez_1', 'role' => 'search']) !!}
                                 {!! Form::text(
                                     'search',
                                     null,
@@ -80,7 +81,6 @@
                                         'class' => 'form-control',
                                     ])
                                 !!}
-                            </div>
                         {!! Form::close() !!}
                         <div class="hamburger">
                             <i class="fa fa-bars trans_200"></i>
