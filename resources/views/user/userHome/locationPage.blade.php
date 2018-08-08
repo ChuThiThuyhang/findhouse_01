@@ -1,5 +1,6 @@
 @extends('masterUser')
 @section('title', 'Location')
+<<<<<<< f0888cee09bb85abbcfc5ad95c2516fdfd61861c
 @section('navbar')
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
     <p>{{ trans('home.location') }}</p>

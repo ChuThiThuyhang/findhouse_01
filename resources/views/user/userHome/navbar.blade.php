@@ -30,4 +30,9 @@
         location.href="/local/" + id;
     }); 
 </script>
-@endsection
+<!-- <script>
+    $('#hang123').on('change', function(){
+        var selectElem = document.getElementById('province_id');
+        alert(selectElem);
+    });
+</script> -->
