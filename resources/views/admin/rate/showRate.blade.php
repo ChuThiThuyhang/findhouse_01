@@ -17,8 +17,8 @@
                             <th>{{ trans('rate.rate_point') }}</th>
                             <th>{{ trans('rate.start_at') }}</th>
                             <th>{{ trans('rate.numberday') }}</th>
-                            <th>{{ trans('admin.Edit') }}</th>
-                            <th>{{ trans('admin.Delete') }}</th>
+                            <th></th>
+                            <th></th>
                        </tr>
                     </thead>
                     <tbody>
@@ -27,8 +27,8 @@
                         <tr>
                             <td>{{ $rate->id }}</td>
                             <td>{{ $rate->name }}</td>
-                            <td>{{ $rate->start_at }}</td>
                             <td>{{ $rate->rate_point }}</td>
+                            <td>{{ $rate->start_at }}</td>
                             <td>{{ $rate->rate_date_number }}</td>
                             <td>
                                 <a href="">{{ trans('admin.Edit') }}</a>

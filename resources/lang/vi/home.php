@@ -9,4 +9,8 @@ return [
     'detail' => 'Mô tả: ',
     'see' => 'Xem chi tiết',
     'address' => 'Địa chỉ: ',
+    'usetour' => 'Tour cho kỳ nghỉ của bạn tại ',
+    'addresss' => 'Nằm trên địa bàn ',
+    'tav' => '	',
 ];
+

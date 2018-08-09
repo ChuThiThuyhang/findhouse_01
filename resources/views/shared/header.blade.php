@@ -64,7 +64,7 @@
                                     <a href="{{ url('/location') }}">{{ trans('header.location') }}</a>
                                 </li>
                                 <li class="main_nav_item">
-                                    <a href="offers.html">{{ trans('header.tours') }}</a>
+                                    <a href="{{ url('/tourGuide') }}">{{ trans('header.tours') }}</a>
                                 </li>
                                 <li class="main_nav_item">
                                     <a href="blog.html">{{ trans('header.contact') }}</a>

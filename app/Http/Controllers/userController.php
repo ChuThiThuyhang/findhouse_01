@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Tour;
 use App\Location;
 use App\Province;
+use App\LocationTour;
 
 class userController extends Controller
 {
@@ -41,11 +42,6 @@ class userController extends Controller
 
             return view('user.userHome.locationPage', compact('provinces', 'provinces1','locations', 'local'));
         }
-        // else
-        // if( $id != null && $idpro == null)
-        // {
-
-        // }
         else
         {
             $provinces = Province::All()->pluck('province_name', 'id');
@@ -83,5 +79,22 @@ class userController extends Controller
 
             return view('user.userHome.locationPage', compact('provinces1', 'locations', 'provinces', 'local'));
         }
+    }
+
+    public function detail($id)
+    {
+        $location = Location::find($id);
+        $id1 = $location->province_id;
+        $province = Province::where('id','=', $id1)->get();
+        $tours = Tour::with('locationtour')->get();
+
+        return view('user.detail.detailLocation', compact('location', 'tours', 'province'));
+    }
+
+    public function tourGui()
+    {
+        $tours = Tour::All();
+
+        return view('user.detail.detailTour', compact('tours'));
     }
 }

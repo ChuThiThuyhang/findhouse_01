@@ -24,6 +24,8 @@ Route::post('/login', 'LoginController@postLogin');
 Route::get('/location', 'userController@location');
 Route::get('/location/{idpro}/{id}', 'userController@local');
 Route::get('/local/{id}', 'userController@loadLocal');
+Route::get('/detailLocation/{id}', 'userController@detail');
+Route::get('/tourGuide', 'userController@tourGui');
 
 Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespace' => 'Admin'], function()
 {

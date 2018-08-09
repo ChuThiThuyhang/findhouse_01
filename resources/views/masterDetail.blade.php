@@ -21,11 +21,42 @@
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/styleL.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/main_styles.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/main.css') }}">
+
+               <link href="<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+        <!-- <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/css/owl.theme.default.min.css') }}"> -->
+        
     </head>
     <body>
         @include('shared.topBar')
         @yield('content1')
         @yield('content2')
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="{{ asset('bower_components/myBootstrap-design/lib/js/popper.min.js') }}"></script>
+        <script src="{{ asset('bower_components/myBootstrap-design/lib/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('bower_components/myBootstrap-design/js/application.min.js') }}"></script>
+        <script src="{{ asset('bower_components/myBootstrap-design/js/product.js') }}"></script>
+        <script src="{{ asset('bower_components/myBootstrap-design/jquery/dist/jquery.min.js') }}"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
+        <script>
+             var swiper = new Swiper('.swiper-container', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+                },
+            });
+        </script>
         @include('shared.footer')
+        
+        <!-- jQuery -->
+    
+   
+
     </body>
 </html>

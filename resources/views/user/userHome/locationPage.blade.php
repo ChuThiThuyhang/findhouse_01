@@ -1,6 +1,5 @@
 @extends('masterUser')
 @section('title', 'Location')
-<<<<<<< f0888cee09bb85abbcfc5ad95c2516fdfd61861c
 @section('navbar')
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
     <p>{{ trans('home.location') }}</p>
@@ -61,7 +60,7 @@
                             <h4>{{ $local->name }}</h4>
                             <p>{{ trans('home.address').$local->address }}</p>
                             <p>{{ trans('home.detail') }} 
-                                <a href="#">{{ trans('home.see') }}</a>
+                                <a href="/detailLocation/{{$local->id}}">{{ trans('home.see') }}</a>
                             </p>
                         </div>
                     </div>

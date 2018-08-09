@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent;
 
 class LocationTour extends Model
 {
-    protected $table = 'location_tour';
+    protected $table = '_location_tous';
     protected $fillable = [
         'location_id',
         'tour_id',
