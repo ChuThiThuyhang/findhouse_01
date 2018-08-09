@@ -5,7 +5,7 @@
         <div class="card">
             <div class="header">
                 <h4 class="title">{{ trans('location.title1') }}</h4>
-                <a href="{{ url('admincp/addProvince') }}">{{ trans('location.addLocation') }}</a>
+                <a href="{{ url('admincp/addLocation') }}">{{ trans('location.addLocation') }}</a>
             </div>
             <div class="content table-responsive table-full-width">
                 <table class="table table-hover table-striped">

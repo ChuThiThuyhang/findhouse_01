@@ -1,2 +1,2 @@
-@extends('masterAdmin')
+@extends('adminlte::page')
 @section('tittle', 'Admin')
