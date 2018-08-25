@@ -18,23 +18,35 @@
                             <th>{{ trans('tour.price') }}</th>
                             <th>{{ trans('tour.rate_id') }}</th>
                             <th>{{ trans('tour.description') }}</th>
-                            <th>{{ trans('admin.Edit') }}</th>
-                            <th>{{ trans('admin.Delete') }}</th>
+                            <th>{{ trans('tour.image') }}</th>
+                            <th>{{ trans('tour.slot') }}</th>
+                            <th>{{ trans('tour.transport') }}</th>
+                            <th>{{ trans('tour.priceKid') }}</th>
+                            <th>{{ trans('tour.type') }}</th>
+                            <th>{{ trans('tour.pricekidsup') }}</th>
+                            <th></th>
+                            <th></th>
                        </tr>
                     </thead>
                     <tbody>
                        @if($tours)
                        @foreach($tours as $tour)
                         <tr>
-                            <td>{{ $tour->tour_id }}</td>
+                            <td>{{ $tour->id }}</td>
                             <td>{{ $tour->name }}</td>
                             <td>{{ $tour->start_at }}</td>
                             <td>{{ $tour->stay_date_number }}</td>
                             <td>{{ $tour->price }}</td>
                             <td>{{ $tour->rate_id }}</td>
                             <td>{{ $tour->description }}</td>
+                            <td>{{ $tour->image }}</td>
+                            <td>{{ $tour->slot }}</td>
+                            <td>{{ $tour->transport }}</td>
+                            <td>{{ $tour->priceKid }}</td>
+                            <td>{{ $tour->type }}</td>
+                            <td>{{ $tour->pricekidsup }}</td>
                             <td>
-                                <a href="">{{ trans('admin.Edit') }}</a>
+                                <a href="{{ url('admincp/editTour/'.$tour->id) }}">{{ trans('admin.Edit') }}</a>
                             </td>
                             <td>
                                 <a href="">{{ trans('admin.Delete') }}</a>
@@ -47,4 +59,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+<script src="{{ asset('bower_components/myBootstrap-design/cssBookTour/js/uploadImage.js') }}"></script>
 @endsection

@@ -26,6 +26,12 @@ Route::get('/location/{idpro}/{id}', 'userController@local');
 Route::get('/local/{id}', 'userController@loadLocal');
 Route::get('/detailLocation/{id}', 'userController@detail');
 Route::get('/tourGuide', 'userController@tourGui');
+Route::get('/bookTour/{id}', 'BookingController@pageBook');
+
+Route::get('/test', 'AdminController@getUpload');
+Route::post('/test', 'AdminController@postUpload');
+Route::post('/showListKH', 'BookingController@showListGuest');
+Route::get('/xuly', 'BookingController@xuly');
 
 Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespace' => 'Admin'], function()
 {
@@ -38,10 +44,13 @@ Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespa
     Route::get('/showprovince', 'ProvinceController@showProvines');
     Route::get('/province', 'ProvinceController@showProvine');
     Route::post('/province', 'ProvinceController@addProvine');
+    Route::get('/delProvince/{id}', 'ProvinceController@delProvine');
     Route::get('/addRate', 'RateController@rate');
     Route::post('/addRate', 'RateController@addRate');
     Route::get('/addTour', 'TourController@tour');
     Route::post('/addTour', 'TourController@addTour');
+    Route::get('/editTour/{id}', 'TourController@edit');
+    Route::post('/editTour/{id}', 'TourController@editTour');
     Route::get('/addLocation', 'LocationController@location');
     Route::post('/addLocation', 'LocationController@addLocation');
 });

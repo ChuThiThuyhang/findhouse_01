@@ -1,10 +1,10 @@
-@extends('master')
+@extends('masterAdmin')
 @section('title', 'Tour')
-@section('content')
+@section('content1')
 <div id="colorlib-reservation">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 search-wrap">
+          <div class="col-md-12 search-wrap" style="margin-top: 100px">
             <form method="post" class="colorlib-form">
                     <div class="row">
                         <div class="col-md-3">
@@ -64,6 +64,8 @@
         </div>
       </div>
     </div>
+@endsection
+@section('content2')
 <div class="container-fluid mb-4">
     <div class="row">
         <div class="col-md-12">
@@ -87,19 +89,19 @@
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
                                         @if($tours)
-                                        @foreach($tours->chunk(4) as $chunk)
+                                        @foreach($tours->chunk(3) as $chunk)
                                         <div class="swiper-slide @if($loop->first) active @endif">
                                             <div class="row">
                                                 @foreach($chunk as $tour)
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-4">
                                                         <div class="card">
-                                                            <div class="card-img"><img src="{{ asset('bower_components/myBootstrap-design/lib/img/'.$tour->image)}}" width="260px" height="160px"></div>
+                                                            <div class="card-img"><img src="{{ asset(config('upload.image').'/'.$tour->image)}} " width="260px" height="160px"></div>
                                                             <div class="card-body">
                                                                <h5 style="text-align: center; font-weight: 600;">{{$tour->name}}</h5>
                                                                <h4 class="pt-1 pb-2">{{trans('tour.stay_date_number1').$tour->stay_date_number}}</h4>
                                                                <h4 class="pt-1 pb-2">{{trans('tour.start_at1').$tour->start_at}}</h4>
                                                                <h4 class="pt-1 pb-2">{{trans('tour.price').$tour->price}}</h4>
-                                                               <button type= "button" class="btn btn-outline-danger btn-block btn-sm">Đặt Tour</button>
+                                                               <div class="button book_button"><a href="{{ url('/bookTour/'.$tour->id) }}">book<span></span><span></span><span></span></a></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -146,19 +148,20 @@
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
                                         @if($tours)
-                                        @foreach($tours->chunk(4) as $chunk)
+                                        @foreach($tours->chunk(3) as $chunk)
                                         <div class="swiper-slide @if($loop->first) active @endif">
                                             <div class="row">
                                                 @foreach($chunk as $tour)
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-4">
                                                         <div class="card">
                                                             <div class="card-img"><img src="{{ asset('bower_components/myBootstrap-design/lib/img/'.$tour->image)}}" width="260px" height="160px"></div>
                                                             <div class="card-body">
-                                                               <h5 style="text-align: center; font-weight: 600;">{{$tour->name}}</h5>
-                                                               <h4 class="pt-1 pb-2">{{trans('tour.stay_date_number1').$tour->stay_date_number}}</h4>
-                                                               <h4 class="pt-1 pb-2">{{trans('tour.start_at1').$tour->start_at}}</h4>
-                                                               <h4 class="pt-1 pb-2">{{trans('tour.price').$tour->price}}</h4>
-                                                               <button type= "button" class="btn btn-outline-danger btn-block btn-sm">Đặt Tour</button>
+                                                               <h5 style="text-align: center; font-weight: 600;">{{$tour->name}} 
+                                                               </h5>
+                                                               <h4><<a>{{trans('tour.stay_date_number1').$tour->stay_date_number}}</a></h4>
+                                                               <h4><a>{{trans('tour.start_at1').$tour->start_at}}</a></h4>
+                                                               <h4><a>{{trans('tour.price').$tour->price}}</a></h4>
+                                                               <div class="button book_button"><a href="">book<span></span><span></span><span></span></a></div>
                                                             </div>
                                                         </div>
                                                     </div>

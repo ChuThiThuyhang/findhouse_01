@@ -12,6 +12,11 @@ class EditToursTable extends Migration
         {
             $table->renameColumn('tour_id', 'id');
             $table->string('image');
+            $table->integer('slot');
+            $table->string('transport');
+            $table->float('priceKid');
+            $table->string('type');
+            $table->string('pricekidsup');
         });
     }
 

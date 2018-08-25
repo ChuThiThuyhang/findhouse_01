@@ -18,6 +18,11 @@ class Tour extends Model
         'rate_id',
         'description',
         'image',
+        'slot',
+        'transport',
+        'priceKid',
+        'type',
+        'pricekidsup',
     ];
 
     public function booking()
@@ -33,6 +38,11 @@ class Tour extends Model
     public function locationtour()
     {
         return $this->hasMany('App\LocationTour');
+    }
+
+    public function customertour()
+    {
+        return $this->hasMany('App\Customer_tours');
     }
 
 }

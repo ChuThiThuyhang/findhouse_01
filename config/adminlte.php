@@ -153,7 +153,7 @@ return [
                 ],
                 [
                     'text' => 'Quan ly province',
-                    'url'  => 'admincp/province',
+                    'url'  => 'admincp/showprovince',
                 ],
             ],
         ],

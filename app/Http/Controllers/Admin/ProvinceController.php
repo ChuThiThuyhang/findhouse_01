@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Province;
+use App\Location;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProvinceFormRequest;
 use App\Http\Controllers\Controller;
-use App\Province;
+
 
 class ProvinceController extends Controller
 {
@@ -27,5 +29,21 @@ class ProvinceController extends Controller
         Province::create($request->all());
 
         return redirect()->to('admincp/province');
+    }
+
+    public function delProvine($id)
+    {
+        $locations = Province::find($id)->location;
+        $province = Province::find($id);
+        $province->delete();
+        foreach ($locations as $location) {
+            $location->province_id = 0;
+            $location->save();
+        }
+        
+
+        $provinces = Province::all();
+        
+        return view('admin.province.showProvince', compact('provinces')); 
     }
 }

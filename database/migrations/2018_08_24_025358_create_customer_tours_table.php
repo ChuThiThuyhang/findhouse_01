@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLocationTousTable extends Migration
+class CreateCustomerToursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateLocationTousTable extends Migration
      */
     public function up()
     {
-        Schema::create('_location_tous', function (Blueprint $table) {
+        Schema::create('customer_tours', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('location_id');
             $table->integer('tour_id');
+            $table->integer('customer_id');
+            $table->timestamps();
         });
     }
 
@@ -27,7 +28,6 @@ class CreateLocationTousTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_location_tous');
+        Schema::dropIfExists('customer_tours');
     }
 }
-

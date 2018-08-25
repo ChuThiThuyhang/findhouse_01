@@ -5,7 +5,7 @@
         <div class="card">
             <div class="header">
                 <h4 class="title">{{ trans('province.title1') }}</h4>
-                <a href="">{{ trans('province.addprovince') }}</a>
+                <a href="{{ url('admincp/province') }}">{{ trans('province.addprovince') }}</a>
             </div>
             <div class="content table-responsive table-full-width">
                 <table class="table table-hover table-striped">
@@ -29,7 +29,7 @@
                                 <a href="">{{ trans('admin.Edit') }}</a>
                             </td>
                             <td>
-                                <a href="">{{ trans('admin.Delete') }}</a>
+                                <a href="{{ url('admincp/delProvince/'.$province->id) }}">{{ trans('admin.Delete') }}</a>
                             </td>
                        </tr>
                        @endforeach
