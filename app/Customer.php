@@ -13,7 +13,6 @@ class Customer extends Model
         'sex',
         'birthday',
         'cardID',
-        'cardID_kid',
         'type',
     ];
 

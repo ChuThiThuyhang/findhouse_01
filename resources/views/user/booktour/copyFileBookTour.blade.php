@@ -263,3 +263,113 @@
 		</div>
 	</div>
 @endsection
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div>
+					<span class="ng-binding">&nbsp;&nbsp;-  Mã hội viên:</span>
+					<span class="text-info-ticket ng-binding"></span>
+				</div>
+				<div>
+					<span class="ng-binding">&nbsp;&nbsp;-  Đơn vị xuất hóa đơn:</span>
+					<span class="text-info-ticket ng-binding"></span>
+				</div>
+				<div>
+					<span class="ng-binding">&nbsp;&nbsp;-  Mã số thuế:</span>
+					<span class="text-info-ticket ng-binding"></span>
+				</div>
+				<div>
+					<span class="ng-binding">&nbsp;&nbsp;-  Địa chỉ:</span>
+					<span class="text-info-ticket ng-binding"></span>
+				</div>
+				<div>
+					<span class="ng-binding">&nbsp;&nbsp;-  Phương thức thanh toán:</span> <!-- ngRepeat: item in listCongTT -->
+					<span class="text-info-ticket ng-binding ng-scope" ng-show="congThanhToan==item.MaCongTT" ng-repeat="item in listCongTT">Thanh toán trực tuyến</span><!-- end ngRepeat: item in listCongTT -->
+					<span class="text-info-ticket ng-binding ng-scope ng-hide" ng-show="congThanhToan==item.MaCongTT" ng-repeat="item in listCongTT">Thanh toán trên PAYOO</span><!-- end ngRepeat: item in listCongTT -->
+					<span class="text-info-ticket ng-binding ng-scope ng-hide" ng-show="congThanhToan==item.MaCongTT" ng-repeat="item in listCongTT">Trả sau</span>
+				<!-- end ngRepeat: item in listCongTT -->
+				</div>
+			</div>
+		</div>
+		<h4 style="color: #dd5600;margin-top: 20px;font-weight: 600" class="ng-binding">Thông tin vé mua</h4>
+		<!-- ngInclude: 'app/payment/ticketCart.confirm.desktop.html' -->
+		<div ng-include="'app/payment/ticketCart.confirm.desktop.html'" class="ng-scope">
+			<div class="table table-responsive list-ticket-deskhop ng-scope">
+			    <table class="table table-bordered tbl-border-black ng-hide" ng-show="isHasDichVu">
+			        <tbody>
+			            <tr>
+			                <th class="ng-binding">STT<!--STT--></th>
+			                <th class="ng-binding">Thông tin vé mua<!--Thông tin vé mua--></th>
+			                <th class="ng-binding">TG giữ vé<!--TG giữ vé--></th>
+			                <th class="ng-binding">Giá (VNĐ)<!--Giá (VNĐ)--></th>
+			                <th class="ng-binding">Chọn mua dịch vụ<!--Chọn mua dịch vụ--></th>
+			                <th class="ng-binding">Giá dịch vụ<!--Giá dịch vụ--></th>
+			                <th class="ng-binding">Giảm giá dịch vụ<!--Giảm giá dịch vụ--></th>
+			                <th class="ng-binding">Thành tiền (VNĐ)<!--Thành tiền (VNĐ)--></th>
+			            </tr>
+			        </tbody>
+			    </table>
+	        
+		    </div>
+		</div>
+	
+	<p ng-bind-html="'PBuyTicket_dienGiaiXacNhanDatVe'|translate" class="ng-binding">
+		<p>Quý khách vui lòng kiểm tra kỹ và xác nhận các thông tin đã nhập trước khi thực hiện giao dịch mua vé.                                              Sau khi thực hiện giao dịch thanh toán ở trang tiếp theo quý khách sẽ không thể thay đổi được thông tin mua vé trên.</p>
+	</p>
+	<div class="col-md-12">
+		<a analytics-on="click" analytics-event="SaveBooking" href="javascript:;" id="btnSaveBookInfo" ng-click="validateDataViewConfirm()" class="pull-right et-btn-rec ng-binding" ng-disabled="requesting">Đồng ý xác nhận&gt;&gt;</a> 
+		<a href="javascript:;" analytics-on="click" analytics-event="BackToAddInfo" ng-click="nhapLaiThongTin()" class="pull-left et-btn-rec ng-binding" ng-disabled="requesting">&lt;&lt; Nhập lại</a>
+	</div>
+
+	//detailtour
+	<div class="content">
+	<div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+            <div class="container_12">
+                <div class="grid_8">
+                    <h3>Special offers</h3>
+                    <div class="block2">
+                        <img src="images/page3_img1.jpg" alt="" class="img_inner fleft">
+                        <div class="extra_wrapper">
+                            <div class="text1 col1"><a href="#">Barcelona</a></div>
+                            <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
+                            <br>
+                            <a href="#" class="link1">LEARN MORE</a>
+                        </div>
+                    </div>
+                    <div class="block2">
+                        <img src="images/page3_img2.jpg" alt="" class="img_inner fleft">
+                        <div class="extra_wrapper">
+                            <div class="text1 col1"><a href="#">Moscow</a></div>
+                            <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
+                            <br>
+                            <a href="#" class="link1">LEARN MORE</a>
+                        </div>
+                    </div>
+                    <div class="block2">
+                        <img src="images/page3_img3.jpg" alt="" class="img_inner fleft">
+                        <div class="extra_wrapper">
+                            <div class="text1 col1"><a href="#">Thailand</a></div>
+                            <p>Cras facilisis, nulla vel viverra auctor, leo gna sodales felis, quis malesuada nibh odio ut velit. Proin pharetra luctus diam, a celerisque eros convallis accumsan. </p>Maecenas vehicula egestas venenatis. Duis massa elit, auctor non pellentesque vel
+                            <br>
+                            <a href="#" class="link1">LEARN MORE</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_3 prefix_1">
+                    <h5>CHOOse the country</h5>
+                    <ul class="list">
+                        <li><a href="#">Albania</a></li>
+                        <li><a href="#">American Samoa</a></li>
+                        <li><a href="#">Antarctica</a></li>
+                        <li><a href="#">Argentina</a></li>
+                        <li><a href="#">Armenia</a></li>
+                        <li><a href="#">Australia</a></li>
+                        <li><a href="#">Austria</a></li>
+                        <li><a href="#">Bahrain</a></li>
+                        <li><a href="#">Barbados</a></li>
+                        <li><a href="#">Belgium</a></li>
+                        <li><a href="#">Belize</a></li>
+                        <li><a href="#">Bermudas</a></li>
+                    </ul>
+                    <a href="#" class="link1">VIEW A<span class="low">ll</span></a>
+                </div>
+            </div>
+        </div>

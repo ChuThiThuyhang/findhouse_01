@@ -1,6 +1,6 @@
 <?php
 
 return [
-'image' => 'upload'
+'image' => 'upload/'
 	
 ];

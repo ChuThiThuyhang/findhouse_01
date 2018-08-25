@@ -14,9 +14,10 @@ class Booking extends Model
         'bookid',
         'tour_id',
         'users_id',
-        'time_book',
         'price_total',
         'description',
+        'status',
+        'slot_Book'
     ];
 
     public function user()
@@ -27,5 +28,10 @@ class Booking extends Model
     public function tour()
     {
         return $this->belongsTo('App\Tour');
+    }
+
+    public function customer_tour()
+    {
+        return $this->hasMany('App\Customer_tours');
     }
 }

@@ -13,14 +13,11 @@
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/fonts/fontawesome/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/main_styles.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/cssBookTour/css/info1.css') }}">
-        
-
     </head>
     <body>
+    
         @include('shared.topBar')
-                @yield('infoTour')
-                @yield('priceTour')
-                @yield('formUser')
+        @yield('infoTour')
         @include('shared.footer')
     </body>
     <script src="{{ asset('bower_components/myBootstrap-design/lib/headerTour/js/jquery-3.2.1.min.js') }}"></script>
@@ -32,5 +29,5 @@
     <script src="{{ asset('bower_components/myBootstrap-design/lib/headerTour/plugins/easing/easing.js') }}"></script>
     <script src="{{ asset('bower_components/myBootstrap-design/lib/headerTour/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }} "></script>
     
-    @yield('script')
+    @yield('js')
 </html>

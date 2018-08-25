@@ -11,6 +11,7 @@ class Customer_tours extends Model
         'id',
         'tour_id',
         'customer_id',
+        'book_tour_id',
     ];
 
     public function tour()
@@ -18,8 +19,13 @@ class Customer_tours extends Model
         return $this->belongsTo('App\Tour');
     }
 
-    public function tour()
+    public function customer()
     {
         return $this->belongsTo('App\Customer');
+    }
+
+    public function booking()
+    {
+        return $this->belongsTo('App\Booking');
     }
 }

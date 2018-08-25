@@ -23,6 +23,7 @@
     "0.5": "https://github.com/cdnjs/cdnjs/tree/master/ajax/libs/bootstrap-material-design/0.5.10",
     "css": "https://github.com/cdnjs/cdnjs/tree/master/ajax/libs/bootstrap-material-design/0.5.10/css",
     "myBootstrap-design": "https://github.com/ChuThiThuyhang/myBootstrap-design.git",
-    "datepicker": "*"
+    "datepicker": "*",
+    "typeahead.js": "^0.11.1"
   }
 }

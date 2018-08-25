@@ -29,5 +29,13 @@ class LocationController extends Controller
         Location::create(request(['name', 'address', 'province_id', 'image', 'description']));
 
         return redirect()->to('admincp/addLocation');
-    }  
+    }
+
+    public function searchByName(Request $request)
+    {
+        $location = Location::where('name', 'like', '%' .  $request->get('value'). '%')->get();
+
+        return response()->json($location); 
+    }
+    
 }

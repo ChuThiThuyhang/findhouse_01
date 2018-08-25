@@ -97,4 +97,22 @@ class userController extends Controller
 
         return view('user.detail.detailTour', compact('tours'));
     }
+
+    public function searchTour(Request $request)
+    {
+        $name = $request->nameLocation;
+        $date = $request->Date;
+        $location = Location::where('name','=',$name)->first();
+        $id_loca = $location['id'];
+        $locationTour = LocationTour::where('location_id','=',$id_loca)->get();
+        // dd($locationTour);
+        $array  =[];
+        foreach ($locationTour as $location) {
+            $id_tour = $location->tour_id;
+            $tour = Tour::where('id','=',$id_tour)->where('start_at','=',$date)->first();
+            $array[] = $tour;
+        }
+
+        return view('user.search.searchPage', compact('array'));
+    }
 }

@@ -26,12 +26,16 @@ Route::get('/location/{idpro}/{id}', 'userController@local');
 Route::get('/local/{id}', 'userController@loadLocal');
 Route::get('/detailLocation/{id}', 'userController@detail');
 Route::get('/tourGuide', 'userController@tourGui');
+Route::post('/searchTour', 'userController@searchTour');
 Route::get('/bookTour/{id}', 'BookingController@pageBook');
 
 Route::get('/test', 'AdminController@getUpload');
 Route::post('/test', 'AdminController@postUpload');
 Route::post('/showListKH', 'BookingController@showListGuest');
-Route::get('/xuly', 'BookingController@xuly');
+Route::post('/order', 'BookingController@create');
+Route::patch('/confirmBook/{id}','BookingController@confirm');
+
+Route::get('/search/name', 'SearchController@searchByName');
 
 Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespace' => 'Admin'], function()
 {
