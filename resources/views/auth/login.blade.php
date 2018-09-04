@@ -1,6 +1,8 @@
 @extends('masterAuth')
 @section('title', 'Đăng Nhập')
 @section('content')
+    
+
     <div class="main-w3layouts wrapper">
         <h1>{{ trans('login.SignIp') }}</h1>
         <div class="main-agileinfo">
@@ -29,11 +31,14 @@
                     !!}
                     {!! Form::submit(trans('register.login')) !!} 
                 {!! Form::close() !!}
+                <p> <a href="{{ url('auth/facebook') }}" > Login With Facebook </a><p>
                 <p>{{ trans('register.question') }}
                     <a href="{{ url('/register') }}">{{ trans('login.register') }}</a>
                 </p>
             </div>   
         </div>  
+ 
+
         <!-- copyright -->
         <div class="w3copyright-agile">
             <p>{{ trans('register.register') }}
