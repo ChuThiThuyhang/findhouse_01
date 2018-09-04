@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/styleL.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/main_styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/offers_styles.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/main.css') }}">
 
                <link href="<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">

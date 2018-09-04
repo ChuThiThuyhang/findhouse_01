@@ -55,7 +55,7 @@
                     <div class="col-md-2 col-sm-2">
                         <label class="mg-bot5">Số giấy tờ (<span class="price">*</span>)</label>
                         <div>
-                            <input class="form-control" name="passport[{{$i}}]" type="text" value="">
+                            <input class="form-control" name="cardID" type="text" value="">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-3">

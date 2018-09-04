@@ -26,7 +26,7 @@ Route::get('/location/{idpro}/{id}', 'userController@local');
 Route::get('/local/{id}', 'userController@loadLocal');
 Route::get('/detailLocation/{id}', 'userController@detail');
 Route::get('/tourGuide', 'userController@tourGui');
-Route::post('/searchTour', 'userController@searchTour');
+Route::get('/search/', 'userController@search');
 Route::get('/bookTour/{id}', 'BookingController@pageBook');
 
 Route::get('/test', 'AdminController@getUpload');
@@ -36,12 +36,19 @@ Route::post('/order', 'BookingController@create');
 Route::patch('/confirmBook/{id}','BookingController@confirm');
 
 Route::get('/search/name', 'SearchController@searchByName');
+Route::get('/searchPrice/{id}', 'SearchController@searchByPrice');
+Route::get('/searchProvince/{id}','SearchController@searchByNameProvince');
+Route::get('/searchType/{id}', 'SearchController@searchByType');
+
+Route::get('/getType', 'SearchController@getType');
+
 
 Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespace' => 'Admin'], function()
 {
     Route::get('/', 'HomeController@index');
     Route::get('/user', 'UserController@index');
     Route::get('/tour', 'TourController@show');
+    Route::get('/lotour', 'TourController@show1');
     Route::get('/rate', 'RateController@showRate');
     Route::get('/location', 'LocationController@showLocation');
     Route::get('/plan', 'PlanController@showPlan');
@@ -57,4 +64,7 @@ Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespa
     Route::post('/editTour/{id}', 'TourController@editTour');
     Route::get('/addLocation', 'LocationController@location');
     Route::post('/addLocation', 'LocationController@addLocation');
+
+    Route::get('/createLoTour', 'TourController@creLoTour');
+    Route::post('/createLoTour', 'TourController@save');
 });

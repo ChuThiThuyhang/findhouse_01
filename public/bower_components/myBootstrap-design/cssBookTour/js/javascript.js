@@ -100,7 +100,7 @@ function callTotal(_this)
         numTreNho = 0;
     }
 
-    if (total > 0) {
+    if (total > 0 && slot_agian != 0) {
 
         $("#guests").val(total);
         $.ajaxSetup({

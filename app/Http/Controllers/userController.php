@@ -7,6 +7,7 @@ use App\Tour;
 use App\Location;
 use App\Province;
 use App\LocationTour;
+use DB;
 
 class userController extends Controller
 {
@@ -86,7 +87,12 @@ class userController extends Controller
         $location = Location::find($id);
         $id1 = $location->province_id;
         $province = Province::where('id','=', $id1)->get();
-        $tours = Tour::with('locationtour')->get();
+        $name = $location->name;
+        $tours = DB::table('tours')->join('_location_tous','_location_tous.tour_id','=','tours.id')
+                                    ->join('locations','locations.id','=','_location_tous.location_id')
+              ->selectRaw('*')
+              ->where('locations.name',$name)
+              ->get();
 
         return view('user.detail.detailLocation', compact('location', 'tours', 'province'));
     }
@@ -94,8 +100,9 @@ class userController extends Controller
     public function tourGui()
     {
         $tours = Tour::All();
+        $provinces = Province::All();
 
-        return view('user.detail.detailTour', compact('tours'));
+        return view('user.detail.detailTour', compact('tours', 'provinces'));
     }
 
     public function searchTour(Request $request)
@@ -106,7 +113,7 @@ class userController extends Controller
         $id_loca = $location['id'];
         $locationTour = LocationTour::where('location_id','=',$id_loca)->get();
         // dd($locationTour);
-        $array  =[];
+        $array  = [];
         foreach ($locationTour as $location) {
             $id_tour = $location->tour_id;
             $tour = Tour::where('id','=',$id_tour)->where('start_at','=',$date)->first();
@@ -114,5 +121,22 @@ class userController extends Controller
         }
 
         return view('user.search.searchPage', compact('array'));
+    }
+
+    public function search(Request $request)
+    {
+        $provinces = Province::All();
+        $date = $request->Date;
+        $name = $request->nameLocation;
+        $result = DB::table('tours')->join('_location_tous','_location_tous.tour_id','=','tours.id')
+                                    ->join('locations','locations.id','=','_location_tous.location_id')
+              ->selectRaw('*')
+              ->where('locations.name',$name)
+              ->where('tours.start_at',$date)
+              ->paginate(6);
+              $result->setPath($request->fullUrl());
+
+        //dd($result);
+        return view('user.search.searchPage', compact('result', 'provinces'));;
     }
 }

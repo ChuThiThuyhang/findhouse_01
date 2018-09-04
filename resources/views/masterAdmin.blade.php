@@ -22,7 +22,8 @@
         @yield('content1')
         @yield('content2')
         @include('shared.footer')
-        <script src="{{ asset('bower_components/myBootstrap-design/lib/headerTour/js/jquery-3.2.1.min.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- <script src="{{ asset('bower_components/myBootstrap-design/lib/headerTour/js/jquery-3.2.1.min.js') }}"></script> -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="{{ asset('bower_components/typeahead.js/dist/typeahead.bundle.min.js') }}"></script>
         <script src="{{ asset('bower_components/myBootstrap-design/lib/headerTour/styles/bootstrap4/popper.js') }}"></script>
@@ -48,35 +49,43 @@
                 },
             });
         </script>
-         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function($) {
-    var engine1 = new Bloodhound({
-        remote: {
-            url: '/search/name?value=%QUERY%',
-            wildcard: '%QUERY%'
-        },
-        datumTokenizer: Bloodhound.tokenizers.whitespace('value'),
-        queryTokenizer: Bloodhound.tokenizers.whitespace
-    });
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function($) {
+            var engine1 = new Bloodhound({
+                remote: {
+                    url: '/search/name?value=%QUERY%',
+                    wildcard: '%QUERY%'
+                },
+                datumTokenizer: Bloodhound.tokenizers.whitespace('value'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace
+            });
 
-    $("#search-input").typeahead({
-        hint: true,
-        highlight: true,
-        minLength: 1
-    }, [
-        {
-            source: engine1.ttAdapter(),
-            name: 'students-name',
-            display: function(data) {
-                return data.name;
-            },
-        }
-    ]);
-});
+            $("#search-input").typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            }, [
+                {
+                    source: engine1.ttAdapter(),
+                    name: 'students-name',
+                    display: function(data) {
+                        return data.name;
+                    },
+                     templates: {
+                        empty: [
+                            '<div class="header-title">Name</div><div class="list-group search-results-dropdown"><div class="list-group-item">Nothing found.</div></div>'
+                        ],
+                        header: [
+                            '<div class="header-title">Name</div><div class="list-group search-results-dropdown"><a style="width: 222px; background-color: #ffffff; color: #050404;"></div>'
+                        ],
+                    }
+                }
+            ]);
+        });
 
-    </script>
+            </script>
     </body>
 </html>

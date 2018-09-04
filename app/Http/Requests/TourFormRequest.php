@@ -20,7 +20,7 @@ class TourFormRequest extends FormRequest
             'price' => 'required|integer',
             'rate_id' => 'required',
             'description' => 'required',
-            'image' => '',
+            'image_path' => 'required',
         ];
     }
 }

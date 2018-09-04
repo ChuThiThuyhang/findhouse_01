@@ -17,6 +17,7 @@ class EditToursTable extends Migration
             $table->float('priceKid');
             $table->string('type');
             $table->string('pricekidsup');
+            $table->softDeletes();
         });
     }
 

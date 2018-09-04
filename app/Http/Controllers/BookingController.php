@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\BookTourRequest;
+use App\Http\Controllers\Controller;
 use Mail;
 use App\User;
 use App\Tour;
@@ -30,6 +32,10 @@ class BookingController extends Controller
                 $sum = 0;
             }
         $div = $tour->slot - $sum;
+        if($div < 0)
+        {
+            $div = 0;
+        }
 
         return view('user.booktour.tourInfo', compact('tour', 'div'));
     }
@@ -44,7 +50,7 @@ class BookingController extends Controller
         $tour = Tour::find($id);
         return [
             'html' => view('user.booktour.showListGuest',compact('total','adult','small_children','children','tour'))->render(),
-                ];
+        ];
     }
 
     public function create(Request $request){
@@ -83,7 +89,7 @@ class BookingController extends Controller
         // chuyển trang về trang nào đó
     }
 
-    public function confirm(Request $request, $id)
+    public function confirm(BookTourRequest $request, $id)
     {
         $total  = intval($request->adult+$request->children+$request->small_children);
         $booking = new Booking();
@@ -102,7 +108,7 @@ class BookingController extends Controller
             $customer->fullname = $request->fullname[$i];
             $customer->sex = $request->gender[$i];
             $customer->birthday = $request->date[$i];
-            $customer->cardID = $request->passport[$i];
+            $customer->cardID = $request->cardID[$i];
             $customer->type = $request->person[$i];
             $customer->save();
 

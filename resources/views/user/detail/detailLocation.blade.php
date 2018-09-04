@@ -48,15 +48,22 @@
 						@foreach($chunk as $tour)
 	                        <div class="col-md-3">
 	                            <div class="card">
-	                                <div class="card-img"><img src="{{ asset('bower_components/myBootstrap-design/lib/img/'.$tour->image)}}" width="260px" height="160px"></div>
-	                                <div class="card-body">
-	                                   <h5>{{$tour->name}}</h5>
-	                                   <h4 class="pt-1 pb-2">{{$tour->stay_date_number}}</h4>
-	                                   <h4 class="pt-1 pb-2">{{$tour->start_at}}</h4>
-	                                   <h4 class="pt-1 pb-2">{{$tour->price}}</h4>
-	                                   <button type= "button" class="btn btn-outline-danger btn-block btn-sm">Dat Tour</button>
-	                                </div>
-	                            </div>
+                                    <div class="card-img"><img src="{{ asset('bower_components/myBootstrap-design/lib/img/'.$tour->image)}}" width="260px" height="160px"></div>
+                                    <div class="card-body">
+                                       <h5 style="text-align: center; font-weight: 600;">{{$tour->name}} 
+                                       </h5>
+                                       <br>
+                                       <br>
+                                       <h4 style="text-align: left; font-weight: 500;"><a>{{trans('tour.stay_date_number1').': '.$tour->stay_date_number}}</a></h4>
+                                       <h4 style="text-align: left; font-weight: 500;"><a>{{trans('tour.start_at1').': '.$tour->start_at}}</a></h4>
+                                       <h4 style="text-align: left; font-weight: 500;"><a>{{trans('tour.price').': '.$tour->price}}</a></h4>
+                                       @if (Auth::check())
+                                       <div class="button book_button" style="margin-left: 30px; padding-top: -5px;"><a href="{{ url('/bookTour/'.$tour->id) }}">book<span></span><span></span><span></span></a></div>
+                                       @else
+                                       <div class="button book_button" style="margin-left: 35px; padding-top: -5px;"><a href="{{ url('/login') }}">book<span></span><span></span><span></span></a></div>
+                                       @endif
+                                    </div>
+                                </div>
 	                        </div>
 	                    @endforeach
 					</div>

@@ -192,7 +192,7 @@
                             <div class="col-md-4">
                                 <label>Số khách</label>
                                 <div>
-                                    <input class="form-control" id="guests" name="guests" readonly="readonly" type="text" value="1"> 
+                                    <input class="form-control" id="guests" name="guests" readonly="readonly" type="text" value="0"> 
                                 </div>
                             </div>
                         </div>   

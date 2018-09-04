@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Tour;
 use App\Rate;
 use App\Photo;
+use App\Location;
+use App\LocationTour;
 use Input;
 
 class TourController extends Controller
@@ -71,7 +73,7 @@ class TourController extends Controller
         $tour->price = $request->input('price');
         $tour->rate_id = $request->input('rate_id');
         $tour->description = $request->input('description');
-        $tour->image = $request->input('image_path');
+        $tour->image = $request->input('image');
         $tour->slot = $request->input('slot');
         $tour->transport = $request->input('name');
         $tour->priceKid = $request->input('priceKid');
@@ -81,4 +83,36 @@ class TourController extends Controller
 
         return redirect()->to('admincp/tour');
     }
+
+    public function creLoTour()
+    {
+        $locations = Location::all()->pluck('name', 'id');
+        $tours = Tour::all()->pluck('name', 'id');
+
+        return view('admin.tour.creLocationTour', compact('locations', 'tours'));
+    }
+
+    public function show1()
+    {
+        $lotours = LocationTour::all();
+
+        return view('admin.tour.showLocation', compact('lotours'));
+    }
+
+    // public function creLoTour()
+    // {
+    //     $locations = Location::all()->pluck('name', 'id');
+    //     $tours = Tour::all()->pluck('name', 'id');
+
+    //     return view('admin.tour.creLocationTour', compact('locations', 'tours'));
+    // }
+
+    public function save(Request $request)
+    {
+        LocationTour::create($request->all());
+
+        return redirect()->to('admincp/lotour');
+    }
+
+
 }

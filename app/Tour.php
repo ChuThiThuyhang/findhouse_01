@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent;
 
 class Tour extends Model
 {
+    // use SoftDeletes;
     protected $table = 'tours';
     protected $fillable = [
         'id',
@@ -24,6 +25,8 @@ class Tour extends Model
         'type',
         'pricekidsup',
     ];
+
+    protected $rate_id = ['deleted_at'];
 
     public function booking()
     {

@@ -108,13 +108,10 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'HomePage',
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text' => 'Home',
+            'url'  => '/',
         ],
         'ACCOUNT SETTINGS',
         [
@@ -155,20 +152,11 @@ return [
                     'text' => 'Quan ly province',
                     'url'  => 'admincp/showprovince',
                 ],
+                [
+                    'text' => 'Tao Tour',
+                    'url'  => 'admincp/createLoTour',
+                ],
             ],
-        ],
-        'LABELS',
-        [
-            'text'       => 'Important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
         ],
     ],
 

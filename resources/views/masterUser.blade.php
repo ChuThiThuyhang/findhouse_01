@@ -37,8 +37,8 @@
             @yield('sliderLocation')
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!--  <script src="{{ asset('bower_components/myBootstrap-design/lib/js/jquery-3.2.1.min.js') }}"></script> -->
+        
+         <script src="{{ asset('bower_components/myBootstrap-design/lib/js/jquery-3.2.1.min.js') }}"></script>
         <script src="{{ asset('bower_components/myBootstrap-design/lib/js/popper.js') }}"></script>
         <script src="{{ asset('bower_components/myBootstrap-design/lib/js/popper.min.js') }}"></script>
         <script src="{{ asset('bower_components/myBootstrap-design/lib/js/bootstrap.min.js') }}"></script>

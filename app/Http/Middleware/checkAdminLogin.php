@@ -28,7 +28,8 @@ class checkAdminLogin
                 // Auth::logout();
                 return redirect('/');
             }
-        } else
+        }
+        else
             return redirect('/login');
         }
 }
