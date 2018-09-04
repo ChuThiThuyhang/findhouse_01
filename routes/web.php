@@ -37,6 +37,12 @@ Route::patch('/confirmBook/{id}','BookingController@confirm');
 
 Route::get('/search/name', 'SearchController@searchByName');
 
+Route::get('facebook', function () {
+    return view('facebook');
+});
+Route::get('auth/facebook', 'Auth\FacebookController@redirectToFacebook');
+Route::get('auth/facebook/callback', 'Auth\FacebookController@handleFacebookCallback');
+    
 Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespace' => 'Admin'], function()
 {
     Route::get('/', 'HomeController@index');
