@@ -5,10 +5,21 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Location extends Model
 {
-    protected $table = 'locations';
+    use SearchableTrait;
+
+
+    protected $searchable = [
+        'columns' => [
+            'locations.name' => 10,
+            'locations.address' => 5,
+            'locations.province_id' => 3,
+        ]
+    ];
+
     protected $fillable = [
         'id',
         'name',

@@ -20,9 +20,16 @@
                         </ul>
                     </div>
                     <div class="user_box ml-auto">
+                        <div class="user_box_login user_box_link">
+                            <a href="{{ url('/') }}">Trang chủ</a>
+                        </div>
                     @if (Auth::check())
                         <div class="user_box_login user_box_link">
-                            <a href="#">{{ Auth::user()->username }}</a>
+                            
+                            <a href="{{ url('/myAccount/'.Auth::user()->id) }}">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                {{ Auth::user()->username }}
+                            </a>
                         </div>
                         <div class="user_box_login user_box_link">
                             <a href="{{ url('/logout') }}">{{ trans('header.logout') }}</a>
@@ -33,10 +40,12 @@
                            </div>
                     @endif
                     @else
+                        
                         <div class="user_box_login user_box_link">
                             <a href="{{ url('/login') }}">{{ trans('header.login') }}</a>
                         </div>
-                        <div class="user_box_register user_box_link"><a href="{{ url('/register') }}">{{ trans('header.register') }}</a></div>
+                        <div class="user_box_register user_box_link">
+                            <a href="{{ url('/register') }}">{{ trans('header.register') }}</a></div>
                     @endif
                     </div>
                 </div>

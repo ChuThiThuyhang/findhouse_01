@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Hash;
+use Input;
 
 class LoginController extends Controller
 {
@@ -15,10 +16,15 @@ class LoginController extends Controller
 
     public function postLogin(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+            'confirmed' =>'1',
+        ];
 
         if (Auth::attempt($credentials))
         {
+            
             if (Auth::user()->role == 1)
             {
                 return redirect()->intended('/admincp');
@@ -30,7 +36,7 @@ class LoginController extends Controller
         }
         else
         {
-            $request->session()->flash('flash_notification.error', trans('login.message'));
+            $request->session()->flash('flash_notification.error', trans('login.message1'));
             
             return redirect()->back();
         }

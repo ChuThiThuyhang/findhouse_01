@@ -4,7 +4,7 @@
 @if( isset($total))
 
 @for ($i = 1; $i <= $total; $i++)
-<div class="col-md-11" style="margin-top: 10px; margin-left: 120px;">
+<div class="col-md-11" style="margin-top: 10px; margin-left: 50px;">
     <div class="title_kh">
         <div>
             Khách hàng 1
@@ -102,7 +102,7 @@
     </div>
 </div>
     @if($i == $total)
-    <div class="col-xs-12">
+    <div class="col-xs-12" style="margin-left: 50px; width: 1365px">
                 <div style="text-align: left; padding: 10px 15px 10px 15px; background: #ddd">
                     <span style="font-weight: bold; font-size: 14px; margin-right: 10px; text-transform: uppercase">Tổng cộng:</span>
                     <span style="color: #cd2c24; font-weight: bold; font-size: 20px;float:right;" id="spanTotalPrice">

@@ -32,10 +32,10 @@
                             <td>{{ $location->description }}</td>
                             <td>{{ $location->image }}</td>
                             <td>
-                                <a href="">{{ trans('admin.Edit') }}</a>
+                                <a href="{{ url('admincp/editLocal/'.$location->id) }}">{{ trans('admin.Edit') }}</a>
                             </td>
                             <td>
-                                <a href="">{{ trans('admin.Delete') }}</a>
+                                <a href="{{ url('admincp/delLocation/'.$location->id) }}">{{ trans('admin.Delete') }}</a>
                             </td>
                        </tr>
                        @endforeach

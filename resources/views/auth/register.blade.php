@@ -4,7 +4,7 @@
     <div class="main-w3layouts wrapper">
         <h1>{{ trans('register.SignUp') }}</h1>
         <div class="main-agileinfo">
-            <div class="agileits-top">
+            <div class="agileits-top" style="background: rgba(0, 0, 0, 0.4117647058823529)">
                 @include('shared/error')
                 {!! Form::open(['method' => 'POST', 'url' => 'register']) !!}
                     {!! csrf_field() !!}
@@ -14,6 +14,7 @@
                         [
                             'placeholder' => trans('register.fullname'),
                             'class' => 'text',
+                            'background-color' => '#ffff !important',
                         ])
                     !!}
                     {!! Form::email(

@@ -41,13 +41,14 @@
                             <label for="adults" style="color: #ffffff;font-weight: 700;font-size: 16px;">Loại Tour</label>
                             <div class="form-field">
                               <i class="icon icon-arrow-down3"></i>
-                              <select name="people" id="people" class="form-control">
-                                <option value="#">1</option>
-                                <option value="#">2</option>
-                                <option value="#">3</option>
-                                <option value="#">4</option>
-                                <option value="#">5+</option>
-                              </select>
+                              <select name="type1" id="type1" class="form-control">
+                                <option selected value=" ">chọn loai Tour</option>
+                                <option value="0">Tiết kiệm</option>
+                                <option value="1">Tiêu chuẩn</option>
+                                <option value="2">Giá tốt</option>
+                                <option value="3">Cao cấp</option>
+                                <option value="4">Tour mới</option>
+                            </select> 
                             </div>
                           </div>
                         </div>
@@ -56,7 +57,8 @@
                             <label for="children" style="color: #ffffff;font-weight: 700;font-size: 16px;">Giá</label>
                             <div class="form-field">
                               <i class="icon icon-arrow-down3"></i>
-                              <select name="people" id="people" class="form-control">
+                              <select name="price1" id="price1" class="form-control">
+                                <option selected value=" ">chọn muc gia</option>
                                 <option value="0">Dưới 1 triệu</option>
                                 <option value="1">1-2 triệu</option>
                                 <option value="2">2-4 triệu</option>
@@ -101,10 +103,11 @@
                                             <div class="swiper-slide">
                                                 <div class="row">
                                                     @foreach($result as $results)
-                                                        <div class="col-md-4">
-                                                            <div class="card">
-                                                                <div class="card-img"><img src="{{ asset('bower_components/myBootstrap-design/lib/img/' . $results->image) }}" width="260px" height="160px"></div>
-                                                                <div class="card-body">
+                                                        <div class="col-md-4" style="width: 344px">
+                                                            <div class="card" style="width: 344px;">
+                                                                <div class="card-img" style="box-sizing: border-box;">
+                                                                <img src="{{ asset(config('upload.image').'/'.$results->image)}}" style="vertical-align: middle;border-style: none;"></div>
+                                                                <div class="card-body" >
                                                                     <h5 style="text-align: center; font-weight: 600;">{{ $results->name }} 
                                                                     </h5>
                                                                     <h4>
@@ -151,9 +154,8 @@
             <label for="adults" style="color: black;font-weight: 700;font-size: 16px;">Tỉnh</label>
             <div class="form-field">
                 <i class="icon icon-arrow-down3"></i>
-
                 <select name="people" id="province" class="form-control">
-                 <option selected value=" ">------chọn tỉnh------</option>
+                 <option selected value=" ">---chọn tỉnh---</option>
                     @foreach($provinces as $province)
                         <option value="{{$province->id}}">{{ $province->province_name }}</option>
                     @endforeach
@@ -167,6 +169,7 @@
             <div class="form-field">
                 <i class="icon icon-arrow-down3"></i>
                 <select name="people" id="type" class="form-control">
+                    <option selected value=" ">---chọn loai Tour---</option>
                     <option value="0">Tiết kiệm</option>
                     <option value="1">Tiêu chuẩn</option>
                     <option value="2">Giá tốt</option>
@@ -183,6 +186,7 @@
             <div class="form-field">
             <i class="icon icon-arrow-down3"></i>
             <select name="people" id="price" class="form-control">
+            <option selected value=" ">---chọn muc gia---</option>
                 <option value="0">Dưới 1 triệu</option>
                 <option value="1">1-2 triệu</option>
                 <option value="2">2-4 triệu</option>
@@ -219,7 +223,5 @@
     @if(!empty($idPrice))
     $("#price").val("{!!$idPrice!!}");
     @endif
-
-
 </script>
 @endsection

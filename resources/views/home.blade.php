@@ -19,36 +19,61 @@
                 <!-- Intro Item -->
                 @if($tours)
                 @foreach($tours as $tour)
-                <div class="col-lg-4 intro_col">
-                    <div class="intro_item">
-                        <div class="intro_item_overlay"></div>
-                        <div class="intro_item_background" style="background-image:url({{ asset('bower_components/myBootstrap-design/lib/img/'.$tour->image) }})">
+                <div class="col-md-4 col-sm-6">
+                            <div class="single-package-item" style="box-shadow: 0 0 20px rgba(0,0,0,.1);">
+                                <img src="{{ asset(config('upload.image').'/'.$tour->image)}}" alt="package-place" style="border: none;max-width: 100%;height: auto; vertical-align: middle; box-sizing: border-box;">
+                                <div class="single-package-item-txt">
+                                    <h4 style="border-bottom: 1px solid #ccc;">{{ $tour->name }}<span class="pull-right">${{ $tour->price }}</span></h4>
+                                    <div class="packages-para" style="padding: 17px 0 0;text-transform: capitalize;">
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i>{{ $tour-> stay_date_number}} daays
+                                            </span>
+                                        </p>
+                                        <p>
+                                            <span>
+                                                <i class="fa fa-angle-right"></i>  transportation {{ $tour->transport }}
+                                            </span>
+                                         </p>
+                                    </div><!--/.packages-para-->
+                                    <div class="about-btn">
+                                        <button class="btn btn-info" style="color: #ffff;border-radius: 10px !important;">
+                                            book now
+                                            @if (Auth::check())
+                                               <a href="{{ url('/bookTour/'.$tour->id) }}"><span></span><span></span><span></span></a>
+                                               @else
+                                               <a href="{{ url('/login') }}"><span></span><span></span><span></span></a>
+                                               @endif
+                                        </button>
+                                    </div><!--/.about-btn-->
+                                </div><!--/.single-package-item-txt-->
+                            </div><!--/.single-package-item-->
+
                         </div>
-                        <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-                            <div class="intro_date">{{ $tour->start_at }}</div>
-                            <div class="button intro_button"><div class="button_bcg"></div>
-                                <a href="#">{{ trans('tour.seemore') }}
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </a>
-                            </div>
-                            <div class="intro_center text-center">
-                                <div class="intro_price">{{ $tour->price }}</div>
-                                <div class="rating rating_4">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 @endforeach
                 @endif
             </div>
         </div>
     </div>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="{{ asset(config('upload.image').'/'.$tour->image)}}" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{{ asset(config('upload.image').'/'.$tour->image)}}" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{{ asset(config('upload.image').'/'.$tour->image)}}" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 @endsection

@@ -6,7 +6,7 @@
 					<div class="single-info row mt-40">
 						<div class="col-lg-6 col-md-12 mt-120 text-center no-padding info-left">
 							<div class="info-thumb">
-								<img src="{{ asset('bower_components/myBootstrap-design/lib/img/'.$location->image)}}" href="{{ asset('bower_components/myBootstrap-design/lib/img/'.$location->image)}}" class="img-fluid" alt="">
+								<img src="{{ asset(config('upload.image').'/'.$location->image)}}" href="{{ asset(config('upload.image').'/'.$location->image)}}" class="img-fluid" alt="">
 							</div>
 						</div>
 						<div class="col-lg-6 col-md-12 no-padding info-rigth">
@@ -48,7 +48,7 @@
 						@foreach($chunk as $tour)
 	                        <div class="col-md-3">
 	                            <div class="card">
-                                    <div class="card-img"><img src="{{ asset('bower_components/myBootstrap-design/lib/img/'.$tour->image)}}" width="260px" height="160px"></div>
+                                    <div class="card-img"><img src="{{ asset(config('upload.image').'/'.$tour->image)}}" width="260px" height="160px"></div>
                                     <div class="card-body">
                                        <h5 style="text-align: center; font-weight: 600;">{{$tour->name}} 
                                        </h5>

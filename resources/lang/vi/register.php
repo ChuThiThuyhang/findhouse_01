@@ -23,7 +23,7 @@ return [
     'username' => 'Tên tài khoản',
     'address' => 'địa chỉ ',
     'phonenumber' => 'SDT',
-    'email' => 'mail',
+    'email' => 'email',
     'fullname' => 'Họ tên',
     'login' => 'Đăng Nhập',
 ];

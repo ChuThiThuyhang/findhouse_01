@@ -13,6 +13,15 @@
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/fonts/fontawesome/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/main_styles.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/cssBookTour/css/info1.css') }}">
+        <style>
+            .nav-item .nav-link:focus
+            {
+                border: 1px solid #fc6600!important;
+                background: #fc6600!important;
+                text-transform: uppercase;
+                font-weight: 500!important;
+            }
+        </style>
     </head>
     <body>
     

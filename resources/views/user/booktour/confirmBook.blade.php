@@ -2,7 +2,7 @@
 @section('title', 'Xác nhận đặt Tour')
 @section('infoTour')
 <div class="row"> 
-	<div class="col-md-12" style="height: 400px">
+	<div class="col-md-12" style="height: 400px;">
 		<h2 style="margin-top: 0px;color: #555555" class="ng-binding">Xác nhận thông tin đặt Tour</h2>
 		<h4 style="color:#dd5600;margin-top: 30px;margin-bottom: 20px; 30px;font-weight:600" class="ng-binding">Thông tin người đặt Tour</h4>
 		<div class="row" style="border-bottom: 1px solid #ccc">
@@ -40,7 +40,7 @@
 			</div>
 		</div>
 		<h4 style="color: #dd5600;margin-top: 20px;font-weight: 600" class="ng-binding">Thông tin khách hàng khách hàng đi Tour</h4>
-		<div class="content table-responsive table-full-width">
+		<div class="content table-responsive table-full-width" style="border-bottom: 1px solid #ccc">
                 <table class=" table-hover table-striped" border="1" style="border: 1px solid black !important;" width="90%">
                     <thead>
                         <tr>
@@ -100,25 +100,62 @@
                        @endfor
                    </tbody>
                 </table>
-            </div>
-            <div class="col-md-12">
-            	{!! Form::open(['method' => 'GET', 'url' => '/bookTour/'.$tour->id, 'enctype' => 'multipart/form-data']) !!}
-            		{!! Form::submit(
-            		'<< Nhap Lai',
-            		[
-            		'class' => 'btn btn-primary',
-            		'style' => 'float: left; border-radius: 4px;',
-            		]) !!}
-                {!! Form::close() !!}
-                {!! Form::open(['method' => 'GET', 'url' => '/listBook/'.Auth::user()->id, 'enctype' => 'multipart/form-data']) !!}
-            		{!! Form::submit(
-            		'xac nhan >>',
-            		[
-            		'class' => 'btn btn-primary',
-            		'style' => 'float: right; border-radius: 4px;',
-            		]) !!}
-                {!! Form::close() !!}
-            </div>
+        </div>
+        <div class="row" style="border-bottom: 1px solid #ccc;">
+            	<div class="col-md-12" style="padding-left: 5px; padding-top: 20px;">
+            		<h4 class="ng-binding" style="color: #dd5600!important; font-weight: 600!important; ">Phương thức thanh toán</h4>
+            	</div>
+				
+				<!-- ngRepeat: item in listCongTT -->
+				<div class="row" style="padding-left: 25px;">
+					<div class="col-sm-4 col-sm-4 et-col-md-4 ng-scope" ng-repeat="item in listCongTT">
+						<input type="radio" name="phuongThucThanhToan" ng-checked="isCheckedCongTT(item.MaCongTT)" ng-click="setCongTT(item.MaCongTT)" ng-disabled="item.MaCongTT=='PayLater' &amp;&amp; !canPayLatter" checked="checked">
+							<span class="et-align-top ng-binding">Thanh toán trực tuyến</span>
+					</div>
+					<!-- end ngRepeat: item in listCongTT -->
+					<div class="col-sm-4 col-sm-4 et-col-md-4 ng-scope" ng-repeat="item in listCongTT">
+						<input type="radio" name="phuongThucThanhToan" ng-checked="isCheckedCongTT(item.MaCongTT)" ng-click="setCongTT(item.MaCongTT)" ng-disabled="item.MaCongTT=='PayLater' &amp;&amp; !canPayLatter">
+							<span class="et-align-top ng-binding">Thanh toán trên PAYOO</span>
+					</div>
+					<!-- end ngRepeat: item in listCongTT -->
+					<div class="col-sm-4 col-sm-4 et-col-md-4 ng-scope" ng-repeat="item in listCongTT">
+						<input type="radio" name="phuongThucThanhToan" ng-checked="isCheckedCongTT(item.MaCongTT)" ng-click="setCongTT(item.MaCongTT)" ng-disabled="item.MaCongTT=='PayLater' &amp;&amp; !canPayLatter" checked="checked">
+							<span class="et-align-top ng-binding">Trả sau</span>
+					</div>
+				</div>
+		</div>		
+		<div class="row" style="border-bottom: 1px solid #ccc;">
+				<div>
+					<span>
+						<h4 class="ng-binding" style="color: #dd5600!important; font-weight: 600!important;padding-left: 15px; padding-top: 20px;">Nhập mã xác nhận</h4>
+					</span>
+					<span>
+						<h5 style="padding-left: 15px">(mã xác nhận được gửi đến mail của bạn)</h5>
+					</span>
+				</div>
+				<div class="col-xs-12" style="padding-left: 20px;">
+					<input type="text" name="idCode" class="form-control search-input" id="code" autocomplete="off" style="width: 200px !important;  padding-top: 5px !important;">				
+				</div>
+		</div>
+		<div class="col-md-12">
+				{!! Form::open(['method' => 'GET', 'url' => '/bookTour/'.$tour->id, 'enctype' => 'multipart/form-data']) !!}
+	            		{!! Form::submit(
+	            		'<< Nhap Lai',
+	            		[
+	            		'class' => 'btn btn-primary',
+	            		'style' => 'float: left; border-radius: 4px;',
+	            		]) !!}
+	                {!! Form::close() !!}
+	                {!! Form::open(['method' => 'GET', 'url' => '/listBook/'.Auth::user()->id, 'enctype' => 'multipart/form-data']) !!}
+	            		{!! Form::submit(
+	            		'xac nhan >>',
+	            		[
+	            		'class' => 'btn btn-primary',
+	            		'style' => 'float: right; border-radius: 4px;',
+	            		]) !!}
+	                {!! Form::close() !!}
+		</div>       	
+	</div>
 	</div>
 </div>
 @endsection

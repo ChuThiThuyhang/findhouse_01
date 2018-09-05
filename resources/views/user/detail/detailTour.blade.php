@@ -16,49 +16,48 @@
             <form method="get" action="/search" class="colorlib-form">
                 <input type="hidden" name="_token" value="{!! csrf_token() !!}">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3" style="padding-left: 90px; padding-right: 10px;">
                             <div class="form-group">
                                 <label for="date" style="color: #ffffff;font-weight: 700;font-size: 16px;">Nơi đến</label>
                                 <div class="form-field">
                                     <i class="icon icon-calendar2"></i>
                                     <div id="prefetch">
-                                        <input type="search" name="nameLocation" class="form-control search-input" id="search-input" placeholder="Type something..." autocomplete="off">
+                                        <input type="search" name="nameLocation" class="form-control search-input" id="search-input" placeholder="Nhập địa điểm..." autocomplete="off">
                                     </div>
-                            </div>
+                                </div>
                         </div>
                         </div>
                         <div class="col-md-3">
                           <div class="form-group">
                             <label for="date" style="color: #ffffff;font-weight: 700;font-size: 16px;">Ngày khởi hành</label>
                             <div class="form-field">
-                              <i class="icon icon-calendar2"></i>
+                              
                               <input id="date" class="form-control date" placeholder="Check-out date" type="date" name="Date">
+                              
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-2">
-                          <div class="form-group">
-                            <label for="adults" style="color: #ffffff;font-weight: 700;font-size: 16px;">Loại Tour</label>
-                            <div class="form-field">
-                              <i class="icon icon-arrow-down3"></i>
-                              <select name="type" id="type1" class="form-control">
-                                <select name="people" id="type" class="form-control">
-                                    <option value="0">Tiết kiệm</option>
-                                    <option value="1">Tiêu chuẩn</option>
-                                    <option value="2">Giá tốt</option>
-                                    <option value="3">Cao cấp</option>
-                                    <option value="4">Tour mới</option>
-                                </select>
-                              </select>
-                            </div>
-                          </div>
+                        <div class="form-group" style="width: 170px;">
+                        <label for="date" style="color: #ffffff;font-weight: 700;font-size: 16px;">Loại Tour</label>
+                        <div class="form-field">
+                            <i class="icon icon-arrow-down3"></i>
+                            <select name="type1" id="type1" class="form-control">
+                                <option selected value=" ">chọn loai Tour</option>
+                                <option value="0">Tiết kiệm</option>
+                                <option value="1">Tiêu chuẩn</option>
+                                <option value="2">Giá tốt</option>
+                                <option value="3">Cao cấp</option>
+                                <option value="4">Tour mới</option>
+                            </select>    
                         </div>
+                    </div>
                         <div class="col-md-2">
                           <div class="form-group">
                             <label for="children" style="color: #ffffff;font-weight: 700;font-size: 16px;">Giá</label>
                             <div class="form-field">
                               <i class="icon icon-arrow-down3"></i>
-                              <select name="price" id="people" class="form-control">
+                              <select name="price1" id="price1" class="form-control">
+                                <option selected value=" ">chọn muc gia</option>
                                 <option value="0">Dưới 1 triệu</option>
                                 <option value="1">1-2 triệu</option>
                                 <option value="2">2-4 triệu</option>
@@ -106,8 +105,8 @@
                                                 @foreach($chunk as $tour)
                                                     <div class="col-md-4">
                                                         <div class="card">
-                                                            <div class="card-img"><img src="{{ asset(config('upload.image').'/'.$tour->image)}} " width="260px" height="160px"></div>
-                                                            <div class="card-body">
+                                                            <div class="card-img" style="width: 260px"><img src="{{ asset(config('upload.image').'/'.$tour->image)}}" width="260px" height="160px"></div>
+                                                            <div class="card-body" style="width: 260px">
                                                                <h5 style="text-align: center; font-weight: 600;">{{$tour->name}}</h5>
                                                                <h4 class="pt-1 pb-2">{{trans('tour.stay_date_number1').$tour->stay_date_number}}</h4>
                                                                <h4 class="pt-1 pb-2">{{trans('tour.start_at1').$tour->start_at}}</h4>
@@ -163,7 +162,7 @@
                                                 @foreach($chunk as $tour)
                                                     <div class="col-md-4">
                                                         <div class="card">
-                                                            <div class="card-img"><img src="{{ asset('bower_components/myBootstrap-design/lib/img/'.$tour->image)}}" width="260px" height="160px"></div>
+                                                            <div class="card-img"><img src="{{ asset(config('upload.image').'/'.$tour->image)}}" width="260px" height="160px"></div>
                                                             <div class="card-body">
                                                                <h5 style="text-align: center; font-weight: 600;">{{$tour->name}} 
                                                                </h5>
@@ -171,7 +170,7 @@
                                                                <h4><a>{{trans('tour.start_at1').$tour->start_at}}</a></h4>
                                                                <h4><a>{{trans('tour.price').$tour->price}}</a></h4>
                                                                @if (Auth::check())
-                                                               <div class="button book_button"><a href="{{ url('/bookTour/'.$tour->id) }}">book<span></span><span></span><span></span></a></div>
+                                                               <div class="button book_button"><a href="{{ url('/tourDetail/'.$tour->id) }}">book<span></span><span></span><span></span></a></div>
                                                                @else
                                                                <div class="button book_button"><a href="{{ url('/login') }}">book<span></span><span></span><span></span></a></div>
                                                                @endif
@@ -207,7 +206,7 @@
             <div class="form-field">
                 <i class="icon icon-arrow-down3"></i>
                 <select name="people" id="province" class="form-control">
-                <option selected>------chọn tỉnh------</option>
+                <option selected>--------chọn tỉnh--------</option>
                     @foreach($provinces as $province)
                         <option value="{{$province->id}}">{{ $province->province_name }}</option>
                     @endforeach
@@ -221,6 +220,7 @@
             <div class="form-field">
                 <i class="icon icon-arrow-down3"></i>
                 <select name="people" id="type" class="form-control">
+                    <option selected value=" ">--------chọn loai Tour--------</option>
                     <option value="0">Tiết kiệm</option>
                     <option value="1">Tiêu chuẩn</option>
                     <option value="2">Giá tốt</option>
@@ -237,6 +237,7 @@
             <div class="form-field">
               <i class="icon icon-arrow-down3"></i>
               <select name="people" id="price" class="form-control">
+                <option selected value=" ">--------chọn muc gia--------</option>
                 <option value="0">Dưới 1 triệu</option>
                 <option value="1">1-2 triệu</option>
                 <option value="2">2-4 triệu</option>
@@ -255,29 +256,23 @@
         var id = $('#price option:selected').val();
         location.href="/searchPrice/" + id;
     });
-
     $("#province").change(function(){
         var name = $('#province option:selected').val();
         location.href="/searchProvince/" + name;
+       
     });
     $("#type").change(function(){
         var type = $('#type option:selected').val();
         location.href="/searchType/" + type;
-        $.ajax({
-            url: "/getType",
-            type: "POST",
-            dataType: "text",
-            data: { 
-                Type: type,
-            },
-            success: function (response){
-                console.log(response);
-                $("#type").append(response);
-            },
-            error: function (error){
-                console.log('that bai');
-            }
-        });
     });
+    @if(!empty($id))
+    $("#province").val("{!!$id!!}");
+    @endif
+    @if(!empty($idType))
+    $("#type1").val("{!!$idType!!}");
+    @endif
+    @if(!empty($idPrice))
+    $("#price1").val("{!!$idPrice!!}");
+    @endif
 </script>
 @endsection

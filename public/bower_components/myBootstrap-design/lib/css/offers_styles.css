@@ -226,8 +226,9 @@ section
 }
 .card-img img
 {
-	width: 358px;
+	width: 344px;
 	height: 250px;
+	border-radius: 2px;
 }
 .super_container
 {

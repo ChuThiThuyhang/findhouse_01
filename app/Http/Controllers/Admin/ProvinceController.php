@@ -9,6 +9,7 @@ use App\Http\Requests\ProvinceFormRequest;
 use App\Http\Controllers\Controller;
 
 
+
 class ProvinceController extends Controller
 {
     public function showProvines()
@@ -17,10 +18,9 @@ class ProvinceController extends Controller
         
         return view('admin.province.showProvince', compact('provinces'));
     }
-// ho nay 2 ham giong ten nhau la ko dc
+
     public function showProvine()
-    {
-        
+    { 
         return view('admin.province.addProvince');
     }
 
@@ -33,17 +33,10 @@ class ProvinceController extends Controller
 
     public function delProvine($id)
     {
-        $locations = Province::find($id)->location;
-        $province = Province::find($id);
+        $province = Province::findOrFail($id);
+        $province->location()->update(['province_id'=> null]);
         $province->delete();
-        foreach ($locations as $location) {
-            $location->province_id = 0;
-            $location->save();
-        }
-        
-
-        $provinces = Province::all();
-        
-        return view('admin.province.showProvince', compact('provinces')); 
+       
+        return redirect()->to('admincp/province');
     }
 }

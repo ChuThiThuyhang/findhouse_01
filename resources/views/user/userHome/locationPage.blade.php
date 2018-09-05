@@ -2,16 +2,18 @@
 @section('title', 'Location')
 @section('navbar')
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <p>{{ trans('home.location') }}</p>
-    <div class="col-sm">
+    <a href="/" style="color: #ffff; padding-right: 10px; font-weight: 700 !important; font-size: 16px; padding-top: -15px;">Home</a>
+    <p style="font-weight: 600; padding-top: -15px;">{{ trans('home.location') }}</p>
+    <div class="col-sm" style="padding-top: 10px;">
         {!! Form::open(['method' => 'GET', 'url' => 'search']) !!} 
-            {!! Form::select('province_id', $provinces, null, ['class'=>'','id'=>"hang123"]) !!}
+            <i class="icon icon-arrow-down3"></i>
+            {!! Form::select('province_id', $provinces, null, ['class'=>'form-control search-input','id'=>'hang123', 'style' => 'width: 200px; border-radius: 6px !important; font-size: 16px!important;' ]) !!}
         {!! Form::close() !!}
     </div>
-    @if(isset($provinces1))
+    <!-- @if(isset($provinces1))
     <div class="" style="color: #fff; font-size: 20px; position: absolute; margin-left: 250px;"><b>Dia danh: </b> {{$provinces1->province_name}}</div>
-    @endif
-    <div>
+    @endif -->
+    <!-- <div>
      {!! Form::open(['method' => 'POST', 'url' => 'search']) !!}
             {!! csrf_field() !!}      
             {!! Form::text(
@@ -23,6 +25,14 @@
                 ]) 
             !!}
         {!! Form::close() !!}
+    </div> -->
+    <div class="form-field" style="padding-top: 10px !important">
+        <i class="icon icon-calendar2"></i>
+        <div id="prefetch">
+            <form method="get" action="/searchLocation">
+                <input type="search" name="nameLocation" class="form-control search-input" id="search-input" placeholder="Tìm kiếm..." autocomplete="off" style="width: 200px; height: 30px; border-radius: 6px !important; font-size: 16px!important;">
+            </form>
+        </div>
     </div>
 </nav>
 @endsection
@@ -44,9 +54,9 @@
                             <div class="jcarousel2" id="carousel2" data-jcarousel="true">
                                 <ul>
                                     <li>
-                                        <a data-fancybox-group="gallery" class="fancybox" href="{{ asset('bower_components/myBootstrap-design/lib/img/'.$local->image)}}">
+                                        <a data-fancybox-group="gallery" class="fancybox" href="{{ asset(config('upload.image').'/'.$local->image)}}">
                                             <div class="thumb" id="image-1">
-                                                <img src="{{ asset('bower_components/myBootstrap-design/lib/img/'.$local->image)}}" class="imgSlideInfo" id="img-3">
+                                                <img src="{{ asset(config('upload.image').'/'.$local->image)}}" class="imgSlideInfo" id="img-3">
                                             </div>
                                         </a>
                                     </li>
@@ -87,7 +97,7 @@
                     <div class="col-md-3 col-sm-6">
                         <a href="javascript:void(0)" class="thumbnail" id="a1" onclick="myFunction({{$local1->province_id}}, {{$local1->id}})">
                             {{ $local1->name }}
-                            <img src="{{ asset('bower_components/myBootstrap-design/lib/img/'.$local1->image)}}" alt="Image" class="img-fluid img-thumbnail">
+                            <img src="{{ asset(config('upload.image').'/'.$local1->image)}}" alt="Image" class="img-fluid img-thumbnail">
                         </a>
                     </div>
                 @endforeach
@@ -111,11 +121,10 @@
     $("#hang123").change(function(){
         var id = $('#hang123 option:selected').val();
         location.href="/local/" + id;
-    });
-    // $('#a1').click(function(e) {
-    //    var idpro = $('#hang123 option:selected').val();
-    //    location.href="/location/" + id + "/" + idpro;
-    // }); 
+    }); 
+    @if(!empty($idpro))
+    $("#hang123").val("{!!$idpro!!}");
+    @endif
     function myFunction(province_id, id){
         location.href="/location/" + province_id + "/" + id;
     }

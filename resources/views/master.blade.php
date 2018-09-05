@@ -20,6 +20,8 @@
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/styleL.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/lib/css/main_styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/cssBookTour/css/style_show_tour .css') }}">
+        <link rel="stylesheet" href="{{ asset('bower_components/myBootstrap-design/cssBookTour/css/style_slider_home .css') }}">
     </head>
     <body>
         @include('shared.header')
@@ -29,9 +31,10 @@
         <script src="{{ asset('bower_components/myBootstrap-design/lib/js/popper.min.js') }}"></script>
         <script src="{{ asset('bower_components/myBootstrap-design/lib/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('bower_components/myBootstrap-design/js/application.min.js') }}"></script>
-        <script src="{{ asset('bower_components/myBootstrap-design/js/product.js') }}"></script>
+        
         <script src="{{ asset('bower_components/myBootstrap-design/jquery/dist/jquery.min.js') }}"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="{{ asset('bower_components/myBootstrap-design/lib/js/popper.min.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!------ Include the above in your HEAD tag ---------->
 
@@ -39,6 +42,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('bower_components/myBootstrap-design/js/custom.js') }}"></script>
         <script>
              var swiper = new Swiper('.swiper-container', {
             navigation: {

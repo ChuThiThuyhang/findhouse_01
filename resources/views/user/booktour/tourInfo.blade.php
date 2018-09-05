@@ -5,7 +5,7 @@
 
     <div class="row">  
             <!--Summary Information of Tour-->
-            <div class="row tour-info">
+            <div class="row tour-info" style="padding-left: 80px;">
                 <div class="col-xs-12">
                     <div class="DIV_24">
                         <div class="DIV_25">
@@ -14,11 +14,11 @@
                                 <div class="DIV_28">
                                     <div class="DIV_29">
                                         <div class="DIV_30">
-                                            <i class="I_31"></i>{{ trans('tour.stay_date_number') }}<span class="SPAN_32">{{ $tour->stay_date_number }}</span>
+                                            <i class="fa fa-clock-o"></i>{{ trans('tour.stay_date_number') }}<span class="SPAN_32">{{ $tour->stay_date_number }}</span>
                                         </div>
                                     </div>
                                     <div class="DIV_33">
-                                        {{ $tour->price }} <span class="SPAN_34">đ</span>
+                                        ${{ $tour->price }} <span class="SPAN_34">đ</span>
                                     </div>
                                 </div>
                                 <div class="DIV_35">
@@ -43,18 +43,22 @@
                                         </div>
                                         <div class="DIV_48">
                                             <div>
-                                                <input class="form-control" id="idTour" name="idTour" readonly="readonly" type="text" value="{{ $tour->id }}">
+                                                <input class="form-control" id="idTour" name="idTour1" readonly="readonly" type="text" value="{{ $tour->id }}">
                                             </div>
                                         </div>
                                         <div class="DIV_47">
+                                        <i class="fa fa-calendar"></i>
                                             {{ trans('tour.start_at1') }}
+
                                         </div>
                                         <div class="DIV_48">
                                             {{ $tour->start_at }}
                                         </div>
                                     </div>
+
                                     <div class="DIV_52">
                                         <div class="DIV_55">
+                                        <i class="fa fa-user"></i>
                                             Số chỗ còn nhận:
                                         </div>
                                         <div class="DIV_56">
@@ -80,7 +84,7 @@
             <div class="DIV_61">
                 <span class="SPAN_62">Giá tour cơ bản</span>
             </div>
-            <div class="DIV_63">
+            <div class="DIV_63" style="padding-left: 80px">
                 <table class="TABLE_2">
                     <thead class="THEAD_3">
                         <tr class="TR_4">
@@ -117,12 +121,12 @@
             </div>
             <!--  form nhap thong tin dat tour-->
             
-            <div class="col-xs-12" style="background-color: #d8d3d3; height: 700px">
+            <div class="col-xs-12" style="background-color: #d8d3d3; height: 700px; margin-left: 65px">
                 <div class="row">
                     <div class="col-md-12">
                         <span class="SPAN_42">Thông tin liên lạc</span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" >
                         <div class="form-group">
                              
                             <label class="LABEL_3">

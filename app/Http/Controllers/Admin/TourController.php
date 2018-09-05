@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use Request;
 use App\Http\Requests\TourFormRequest;
+use App\Http\Requests\EditTourFormRequest;
 use App\Http\Controllers\Controller;
 use App\Tour;
 use App\Rate;
@@ -55,31 +57,22 @@ class TourController extends Controller
         return view('admin.tour.editTour', compact('rates', 'tour'));
     }
 
-    public function editTour(TourFormRequest $request, $id)
+    public function editTour(EditTourFormRequest $request, $id)
     {
-        $name = null;
+        $tour = Tour::findOrFail($id);
         $file = Input::file('image_path');
-        
         if(Input::hasFile('image_path'))
         {
             $name = $file -> getClientOriginalName();
             $file->move(config('upload.image'), $name);
-        }
 
-        $tour = Tour::find($id);
-        $tour->name = $request->input('name');
-        $tour->start_at = $request->input('start_at');
-        $tour->stay_date_number = $request->input('stay_date_number');
-        $tour->price = $request->input('price');
-        $tour->rate_id = $request->input('rate_id');
-        $tour->description = $request->input('description');
-        $tour->image = $request->input('image');
-        $tour->slot = $request->input('slot');
-        $tour->transport = $request->input('name');
-        $tour->priceKid = $request->input('priceKid');
-        $tour->type = $request->input('type');
-        $tour->priceKid = $request->input('pricekidsup');
-        $tour->save();
+        }
+        else $name = $tour->image;
+        $request->merge([
+            'image' => $name
+        ]);
+        
+        $tour->update($request->all());
 
         return redirect()->to('admincp/tour');
     }
@@ -114,5 +107,6 @@ class TourController extends Controller
         return redirect()->to('admincp/lotour');
     }
 
+   
 
 }

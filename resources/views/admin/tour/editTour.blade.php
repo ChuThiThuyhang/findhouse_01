@@ -4,7 +4,8 @@
             <div class="agileits-top">
             <h1>{{ trans('tour.editTour') }}</h1>
                 @include('shared/error')
-                {!! Form::model($tour, ['url' => ['admincp/editTour', $tour->id], 'method' => 'POST']) !!}
+                {!! Form::model($tour, ['url' => ['admincp/editTour', $tour->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+
                     {!! Form::text(
                         'name',
                         null,
@@ -49,9 +50,13 @@
                             'class' => 'text w3lpass form-control',
                         ])
                     !!}
-                    <!-- chon file anh -->
-                    {!! Form::file('image') !!}
-                    <!-- form chon file anh -->
+                    <label for="imgInp" class="clone">
+                        {!! Html::image(asset(config('upload.image').'/'.$tour->image), 'upload photo', array('class' => 'image_rounded imgId', 'id' => 'imgId', 'width' => '400px', 'height' => '280px' )) !!}
+                    </label>
+                    {!! Form::hidden('pathPhoto', null, array('class' => 'pathPhoto', 'id' => 'pathPhoto')) !!}
+                    {!! Form::file('image_path', array('id' => 'imgInp', 'accept' => 'image/x-png, image/jpeg')) !!}
+                    
+                    
                     {!! Form::text(
                         'slot',
                         null,

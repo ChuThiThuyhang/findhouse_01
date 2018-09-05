@@ -10,8 +10,10 @@
         "fideloper/proxy": "^4.0",
         "jeroennoten/laravel-adminlte": "^1.23",
         "laravel/framework": "5.6.*",
+        "laravel/socialite": "^3.1",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.6",
+        "nicolaslopezj/searchable": "^1.10",
         "spatie/laravel-permission": "^2.12"
     },
     "require-dev": {

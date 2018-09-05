@@ -149,4 +149,16 @@ class SearchController extends Controller
     	dd($result);
     	return $result;
     }
+
+    public function searchLocal(Request $request)
+    {
+        $provinces = Province::All()->pluck('province_name', 'id');
+        $provinces1 = Province::inRandomOrder()->first();
+        $locations = Location::search($request->get('nameLocation'))->get();
+        // dd($locations);
+        $local = Location::search($request->get('nameLocation'))->first();
+
+        return view('user.userHome.locationPage', compact('provinces', 'provinces1','locations', 'local'));
+        
+    }
 }

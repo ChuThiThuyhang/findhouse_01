@@ -9,8 +9,10 @@ use Mail;
 use App\User;
 use App\Tour;
 use App\Booking;
+use App\UserCode;
 use App\Customer;
 use App\Customer_tours;
+
 
 class BookingController extends Controller
 {
@@ -22,7 +24,9 @@ class BookingController extends Controller
     //                 $message->from('chuhangpt96@gmail.com','Admin Kansai Book');
     //             });
         $tour = Tour::find($id);
-        $book = Booking::where('tour_id', '=', $id)->get();
+        
+        $book = Booking::where('tour_id', '=', $id)->first();
+        
         if( $book != null)
         {
             $sum = Booking::where('tour_id', '=', $id)->sum('slot_Book');
@@ -31,6 +35,7 @@ class BookingController extends Controller
             {
                 $sum = 0;
             }
+            
         $div = $tour->slot - $sum;
         if($div < 0)
         {
@@ -89,11 +94,32 @@ class BookingController extends Controller
         // chuyển trang về trang nào đó
     }
 
+    public function saveCode($user, $code)
+    {
+        $usercode = new UserCode;
+        $usercode->user_id = $user->id;
+        $usercode->activation_code = $code;
+        $usercode->save();
+    }
+
+    public function sendMail($idUser)
+    {
+        $user = User::findOrFail($idUser);
+        $string = str_random(10);
+        BookingController::saveCode($user, $string);
+        Mail::send('mailautosend', ['user' => $user, 'code' => $string], function($message) use ($user) {
+                    $message->to($user->email, 'Visitor')->subject('Feedback!');
+                    $message->from('chuhangpt96@gmail.com','Admin Kansai Book');
+                });
+    }
+
     public function confirm(BookTourRequest $request, $id)
     {
+        BookingController::sendMail($id);
+
         $total  = intval($request->adult+$request->children+$request->small_children);
         $booking = new Booking();
-        $booking->tour_id = $request->idTour;
+        $booking->tour_id = $request->idTour1;
         $booking->users_id = $id;
         $booking->price_total = $request->Sum;
         $booking->description = $request->Note;
@@ -114,18 +140,41 @@ class BookingController extends Controller
 
             $array[] = $customer;
             $customerOfTour = new Customer_tours();
-            $customerOfTour->tour_id = $request->idTour;
+            $customerOfTour->tour_id = $request->idTour1;
             $customerOfTour->customer_id = $customer->id;
             $customerOfTour->book_tour_id = $id_booking;
             $customerOfTour->save();
         }
 
         $user = User::find($id);
-        $id_tour = $request->idTour;
-        $tour = Tour::find($id_tour);
+        $id_tour = $request->idTour1;
+        $tour = Tour::where('id','=',$id_tour)->first();
+        
         $price_total = $request->Sum;
         // dd($array);
         return view('user.booktour.confirmBook', compact('user', 'tour', 'array', 'price_total'));
+    }
+
+    public function showDetailBook()
+    {
+        $id = $_GET['bookID'];
+        $book = Booking::where('bookid','=',$id)->first();
+        $cus_1 = Customer_tours::where('book_tour_id','=',$id)->first();
+        $cus = Customer_tours::where('book_tour_id','=',$id)->get();
+        
+        $id_tour = $cus_1->tour_id;
+        $tour = Tour::find($id_tour);
+
+        $array = [];
+        foreach($cus as $custom)
+        {
+            $customer = Customer::find($custom->customer_id);
+            $array[] = $customer;
+        }
+
+        return [
+            'html' => view('user.accountUser.infoBooking',compact('array', 'tour', 'book'))->render(),
+        ];
     }
 
 }

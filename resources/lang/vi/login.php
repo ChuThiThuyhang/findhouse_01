@@ -25,5 +25,6 @@ return [
     'phonenumber' => 'SDT',
     'email' => 'mail',
     'fullname' => 'fullname',
-    'message' => 'Email hoặc mật khẩu chưa chính xác!',
+    'message1' => 'Email hoặc mật khẩu chưa chính xác!',
+    'message2' => 'Bạn cần xác minh tài khoản qua email trước khi đăng nhâp!!',
 ];

@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+<html lang="vi">
     <head>
         <title> @yield('title') </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
