@@ -21,4 +21,5 @@ return [
     'image' => 'Hình ảnh',
     'description' => 'Mô tả',
     'title1' => 'Danh sách địa điểm',
+    'search' => 'Tìm kiếm',
 ];

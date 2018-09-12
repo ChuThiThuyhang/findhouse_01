@@ -19,4 +19,19 @@ class Province extends Model
     {
         return $this->hasMany('App\Location');
     }
+
+    public function scopeGetProvince($query)
+    {
+        return $query->pluck('province_name', 'id');
+    }
+
+    public function scopeRandom($query)
+    {
+        return $query->inRandomOrder();
+    }
+
+    public function scopeFindProvince($query, $id)
+    {
+        return $query->findOrFail($id);
+    }
 }

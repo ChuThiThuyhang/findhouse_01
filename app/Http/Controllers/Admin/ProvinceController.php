@@ -15,7 +15,7 @@ class ProvinceController extends Controller
         
         return view('admin.province.showProvince', compact('provinces'));
     }
-// ho nay 2 ham giong ten nhau la ko dc
+
     public function showProvine()
     {
         

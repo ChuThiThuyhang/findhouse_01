@@ -14,16 +14,17 @@
 // Route::get('/home', function () {
 //     return view('home');
 // });
-Route::get('/', 'userController@home');
+Route::get('/', 'UserController@home');
 
 Route::get('/register', 'RegisterController@register');
 Route::post('/register', 'RegisterController@postRegister');
 Route::get('/logout', 'LoginController@logout');
 Route::get('/login', 'LoginController@login');
 Route::post('/login', 'LoginController@postLogin');
-Route::get('/location', 'userController@location');
-Route::get('/location/{idpro}/{id}', 'userController@local');
-Route::get('/local/{id}', 'userController@loadLocal');
+Route::get('/location', 'UserController@location');
+Route::get('/location/{idpro}/{id}', 'UserController@local');
+Route::get('/detailLocation/{id}', 'UserController@detail');
+Route::get('/local/{id}', 'UserController@loadLocal');
 
 Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admincp', 'namespace' => 'Admin'], function()
 {

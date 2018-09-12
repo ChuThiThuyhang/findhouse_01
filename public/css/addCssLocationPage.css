@@ -1,0 +1,49 @@
+.a_locationPage
+{
+    color: #ffff;
+    padding-right: 10px;
+    font-weight: 700 !important;
+    font-size: 16px;
+    padding-top: -15px;
+}
+
+.p_locationPage
+{
+    font-weight: 600;
+    padding-top: -15px;
+}
+
+.form-field
+{
+    padding-top: 10px !important;
+}
+
+#_locationPgae
+{
+    padding-top: 10px;
+}
+
+#hang123
+{
+    width: 200px;
+    border-radius: 6px !important;
+    font-size: 16px!important;
+}
+
+#search-input
+{
+    width: 200px;
+    height: 30px;
+    border-radius: 6px !important;
+    font-size: 16px!important;
+}
+
+#accordion-left
+{
+    display: block;
+}
+
+#ThumbnailCarousel
+{
+    margin-top: -150px;
+}

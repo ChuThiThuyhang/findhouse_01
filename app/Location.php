@@ -32,4 +32,14 @@ class Location extends Model
     {
         return $this->hasMany('App\Plan');
     }
+
+    public function scopeGetLocation($query, $id)
+    {
+        return $query->where('province_id', $id);
+    }
+
+    public function scopeFindLocation($query, $id)
+    {
+        return $query->findOrFail($id);
+    }
 }

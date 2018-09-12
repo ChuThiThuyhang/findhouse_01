@@ -35,4 +35,8 @@ class Tour extends Model
         return $this->hasMany('App\LocationTour');
     }
 
+    public function scopeFindTour($query, $id)
+    {
+        return $query->findOrFail($id);
+    }
 }

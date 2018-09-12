@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="{{ asset('css/navbarLocation.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/myBootstrap-design/lib/css/responsive.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/myBootstrap-design/lib/css/locationPage.css') }}">
-        
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/addCssLocationPage.css') }}">      
     </head>
     <body>
         @yield('navbar')

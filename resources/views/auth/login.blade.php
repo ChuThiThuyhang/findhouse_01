@@ -16,7 +16,7 @@
                         old('email'), 
                         [
                             'placeholder' => trans('register.email'),
-                            'class' => "text email",
+                            'class' => 'text email',
                         ]) 
                     !!}
                     {!! Form::password(
@@ -24,7 +24,7 @@
                         old('password'), 
                         [
                             'placeholder' => trans('register.password'),
-                            'class' => "text w3lpass",
+                            'class' => 'text w3lpass',
                         ]) 
                     !!}
                     {!! Form::submit(trans('register.login')) !!} 

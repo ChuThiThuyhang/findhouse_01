@@ -14,7 +14,14 @@ class RegisterController extends Controller
     
     public function postRegister(RegisterFormRequest $request)
     {
-        $user = User::create(request(['fullname', 'email', 'phonenumber', 'username', 'password', 'address']));
+        $user = User::create(request(
+            [
+                'fullname', 
+                'email', 
+                'phonenumber', 
+                'username', 
+                'password'
+            ]));
         
         auth()->login($user);   
         

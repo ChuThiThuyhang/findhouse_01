@@ -31,6 +31,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            'App\Repositories\Contracts\SearchRepositoryInterface',
+            'App\Repositories\Eloquents\SearchRepository'
+        );
     }
 }

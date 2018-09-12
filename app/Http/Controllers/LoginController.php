@@ -17,19 +17,15 @@ class LoginController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials))
-        {
-            if (Auth::user()->role == 1)
-            {
+        if (Auth::attempt($credentials)) {
+            if (Auth::user()->role == 1) {
                 return redirect()->intended('/admincp');
             }
-            else
-            {
+            else {
                 return redirect()->intended('/');
             }
         }
-        else
-        {
+        else {
             $request->session()->flash('flash_notification.error', trans('login.message'));
             
             return redirect()->back();
